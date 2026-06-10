@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 2 · 壓力、流量、符號</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L2);">LEVEL 2 / 7</span>
+  </nav>
+
+  <main class="container">
+    <span class="level-chip" style="background: rgba(167,139,250,0.15); color: var(--L2);">LEVEL 2 · 核心概念</span>
+    <h1>⚡ 壓力與流量</h1>
+    <p class="lead">Pressure &amp; Flow — 壓力決定力量，流量決定速度。分清楚這兩件事，就懂了液壓的一半。</p>
+
+    <h2>謎題：消防車水柱為何能噴到 12 樓？</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2021 年，台中某工業區大火，消防員使用特製水砲把水柱精準打到 12 層樓（約 40 公尺）高的窗口。同一輛消防車同時使用一條細的手持水管進行近距離滅火。<strong style="color: var(--ans);">問題：同一台消防車的泵輸出，為什麼一條管能打到 40 公尺，另一條只能打 8 公尺？管子的粗細和噴射距離有什麼關係？</strong>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="card" style="border-top-color: var(--L4);">
+        <div class="title" style="color: var(--L4);">🛡️ 壓力（Pressure）</div>
+        <ul>
+          <li>流體「推的力道」，單位面積上的力</li>
+          <li>決定執行器能產生多大的<strong>力量</strong></li>
+          <li>類比：水管裡水的壓力大小</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top-color: var(--L1);">
+        <div class="title" style="color: var(--L1);">🚿 流量（Flow Rate）</div>
+        <ul>
+          <li>每分鐘流過多少體積的液體</li>
+          <li>決定執行器動作的<strong>速度</strong></li>
+          <li>類比：每秒流多少公升的水</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong style="color: var(--ans);">壓力和流量是兩件獨立的事</strong>，但在功率固定時可以互相交換——提高壓力通常需要犧牲流量，反之亦然。</p>
+
+    <h2>壓力的本質：阻力才產生壓力</h2>
+    <div class="key">
+      <div class="title">🧠 最核心的概念：沒有阻力，就沒有壓力！</div>
+      <div class="body">泵的工作是「<strong style="color: var(--text);">推動液體流動</strong>」（製造流量）。系統壓力是由下游的「<strong style="color: var(--text);">阻力</strong>」決定的，不是泵直接設定的。阻力越大，壓力越高；阻力為零，壓力為零。</div>
+    </div>
+    <p>這就是為什麼液壓系統需要「安全閥（Relief Valve）」——如果出口完全被堵死，泵持續推動液體，壓力會無限上升，直到元件爆裂。安全閥的作用是：壓力超過設定值時，自動打開洩壓通道。</p>
+
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">📐 壓力單位換算</div>
+      <div class="expr">1 Bar = 10 N/cm² = 14.5 PSI = 100,000 Pa</div>
+      <div class="note">Bar（巴）：工業最常用｜PSI：北美常用｜kgf/cm²：舊式（≈1 Bar）｜MPa：1 MPa = 10 Bar</div>
+    </div>
+
+    <div class="key">
+      <div class="title" style="color: var(--L4);">📊 典型壓力參考表</div>
+      <div class="body">
+        ▸ 自行車輪胎：5–8 Bar（高壓但小力量）<br>
+        ▸ 家用自來水：2–5 Bar（日常參考）<br>
+        ▸ 一般工業液壓：100–200 Bar（工廠常見）<br>
+        ▸ 挖土機／吊車：250–350 Bar（高壓系統）
+      </div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">系統壓力</span><span class="sep">|</span><span class="en">System Pressure</span></span>
+      <span class="term-chip"><span class="zh">背壓</span><span class="sep">|</span><span class="en">Back Pressure</span></span>
+      <span class="term-chip"><span class="zh">壓差</span><span class="sep">|</span><span class="en">Pressure Differential (ΔP)</span></span>
+      <span class="term-chip"><span class="zh">安全閥</span><span class="sep">|</span><span class="en">Relief Valve</span></span>
+    </div>
+
+    <h2>流量、液壓功率與效率</h2>
+    <p><strong style="color: var(--L1);">流量 Q</strong> 是單位時間內通過截面的液體體積。流量越大，執行器動作越快；與壓力（力量）無關。</p>
+
+    <div class="formula">
+      <div class="title">📐 流量守恆（連續方程式）</div>
+      <div class="expr">Q = A × v = A₁×v₁ = A₂×v₂（恆定）</div>
+      <div class="unit">LPM（公升/分鐘）或 GPM（加侖/分鐘）</div>
+      <div class="note">Q = 流量｜A = 截面積（cm²）｜v = 流速（m/s）｜管子變細 → 流速自動加快</div>
+    </div>
+
+    <div class="formula" style="border-left-color: var(--key);">
+      <div class="title" style="color: var(--key);">📐 液壓功率（最重要的公式之一）</div>
+      <div class="expr">P(kW) = Q(LPM) × p(Bar) ÷ 600</div>
+      <div class="note">英制：P(hp) = Q(GPM) × p(PSI) ÷ 1714｜功率 = 壓力 × 流量（能量的根本）</div>
+    </div>
+
+    <div class="calc">
+      <div class="title">📝 計算範例：挖土機液壓系統功率需求</div>
+      <ol>
+        <li>系統壓力 350 Bar，主泵最大流量 150 LPM</li>
+        <li>液壓功率：P = 150 × 350 ÷ 600 = 87.5 kW</li>
+        <li>考慮系統效率 83%，引擎需提供：87.5 ÷ 0.83 ≈ <strong style="color: var(--key);">105 kW ≈ 143 馬力</strong></li>
+      </ol>
+      <div class="result">✅ 需要約 140–150 馬力的引擎，與市售中型挖土機規格完全吻合。</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：消防車的水壓謎題</div>
+      <div class="body">消防車泵輸出固定功率。水砲出口粗、阻力小，壓力低但流量大；細水管出口截面積小，形成高阻力，壓力高、流速快，噴射距離遠。<strong style="color: var(--key);">在泵功率固定的前提下，縮小出口面積可換取更高的噴射壓力——這就是「壓力與流量的功率交換」。</strong></div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">流量</span><span class="sep">|</span><span class="en">Flow Rate (Q)</span></span>
+      <span class="term-chip"><span class="zh">流速</span><span class="sep">|</span><span class="en">Flow Velocity (v)</span></span>
+      <span class="term-chip"><span class="zh">液壓功率</span><span class="sep">|</span><span class="en">Hydraulic Power (kW)</span></span>
+      <span class="term-chip"><span class="zh">排量</span><span class="sep">|</span><span class="en">Displacement (D)</span></span>
+    </div>
+
+    <h2>📐 液壓原理圖符號</h2>
+    <p>Hydraulic Schematic Symbols — 液壓工程師的全球語言。</p>
+
+    <h3>謎題：維修手冊上的神秘符號</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        一位剛入職的台灣技術員，拿到一份德國製挖土機的液壓維修手冊，裡面全是奇怪的圖形、線條和方框，看了 10 分鐘完全不知道在說什麼。<br><br>
+        旁邊的老師傅說：「這些符號遵循 <strong style="color: var(--ans);">ISO 1219 國際標準</strong>，全世界——日本、德國、美國、台灣——液壓工程師都用同一套符號。學會了，就算是你沒看過的機器，只要拿到原理圖，就能讀懂它的液壓系統。」
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🌐 ISO 1219：液壓工程師的全球語言</div>
+      <div class="body">ISO 1219 符號設計得很有邏輯性——<strong style="color: var(--text);">每個符號的外形都反映了元件的功能</strong>。掌握三個核心設計原則，就能靠「推理」讀懂大多數符號。</div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L1);">
+      <div class="title" style="color: var(--L1);">📦 原則①：方框代表閥的工作位置</div>
+      <div class="body">閥的符號由一個或多個方框組成。幾個方框就有幾個工作位置（Position）。方框裡的箭頭和線條表示這個位置時的油液流動方向。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--key);">
+      <div class="title" style="color: var(--key);">🔺 原則②：三角形代表能量轉換方向</div>
+      <div class="body">泵和馬達用圓圈加三角形。三角形尖端朝「出口側」= 泵（輸出能量）；朝「入口側」= 馬達（接收能量）。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L4);">
+      <div class="title" style="color: var(--L4);">↕️ 原則③：斜箭頭代表「可調整」</div>
+      <div class="body">符號上有一條斜穿的箭頭，代表這個元件的某個參數是可以調整的。例如可變排量泵、可調節流量閥等。</div>
+    </div>
+
+    <h3>管路的三種線型——看線就知道油路類型</h3>
+    <div class="key" style="border-left: 3px solid var(--L1);">
+      <div class="title" style="font-family: monospace; color: var(--L1);">─────────</div>
+      <div class="body"><strong style="color: var(--text);">主油路（Main Line）</strong>：承載主要液壓油流，是系統的主幹道。承受最高壓力和最大流量。<br><em style="color: var(--dim);">範例：泵輸出到方向控制閥的管路</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L2);">
+      <div class="title" style="font-family: monospace; color: var(--L2);">─ ─ ─ ─ ─</div>
+      <div class="body"><strong style="color: var(--text);">先導管路（Pilot Line）</strong>：傳遞低壓控制訊號，用來「觸發」或「解鎖」其他閥件。流量極小但至關重要。<br><em style="color: var(--dim);">範例：先導操作方向閥的遠端控制管路</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid #64748b;">
+      <div class="title" style="font-family: monospace; color: #64748b;">─·─·─·─</div>
+      <div class="body"><strong style="color: var(--text);">排洩管路（Drain Line）</strong>：將閥件內部的少量內漏油引回油箱。通常是低壓或零壓管路，必須直接連回油箱。<br><em style="color: var(--dim);">範例：可變排量泵的殼體排洩管</em></div>
+    </div>
+
+    <p>連接節點：交叉處有<strong style="color: var(--text);">實心圓點 ●</strong> → 連接互通；<strong style="color: var(--text);">沒有圓點</strong> → 只是圖面重疊，不相通。</p>
+
+    <p>👉 常用元件符號圖請看 <a href="../reference/symbols.html">ISO 1219 符號圖鑑</a>。</p>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：維修手冊謎題</div>
+      <div class="body">ISO 1219 符號不是隨機設計的——有邏輯、有規律。掌握「方框=位置、箭頭=流向、三角形=能量方向、斜箭頭=可調整」這四個原則，就算遇到從沒見過的符號，也能靠推理猜出它的功能。<strong style="color: var(--key);">這套全球語言，讓任何液壓工程師都能讀懂來自任何國家的機器圖紙。</strong></div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">ISO 1219</span><span class="sep">|</span><span class="en">ISO 1219 Standard</span></span>
+      <span class="term-chip"><span class="zh">工作位置</span><span class="sep">|</span><span class="en">Position</span></span>
+      <span class="term-chip"><span class="zh">主油路</span><span class="sep">|</span><span class="en">Main Line</span></span>
+      <span class="term-chip"><span class="zh">先導管路</span><span class="sep">|</span><span class="en">Pilot Line（虛線）</span></span>
+      <span class="term-chip"><span class="zh">排洩管路</span><span class="sep">|</span><span class="en">Drain Line（鏈線）</span></span>
+      <span class="term-chip"><span class="zh">連接節點</span><span class="sep">|</span><span class="en">Junction Node</span></span>
+    </div>
+
+    <button class="read-btn" data-level="2">標記為已讀</button>
+
+    <nav class="lesson-nav">
+      <a href="level-1.html">← Level 1</a>
+      <a href="level-3.html" class="next">下一課 · Level 3 →</a>
+    </nav>
+  </main>
+
+  <script src="../assets/progress.js"></script>
+</body>
+</html>

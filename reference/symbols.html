@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISO 1219 符號圖鑑</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .symbol-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .symbol-card img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 8px;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+    .symbol-card .info .name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .symbol-card .info .en { font-size: 12px; color: var(--dim); margin-bottom: 8px; }
+    .symbol-card .info .desc { font-size: 13px; color: var(--muted); }
+    .symbol-card .info .lv { font-size: 11px; color: var(--L1); margin-top: 8px; }
+    @media (max-width: 500px) {
+      .symbol-card { flex-direction: column; }
+      .symbol-card img { width: 100%; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L6);">符號圖鑑</span>
+  </nav>
+
+  <main class="container">
+    <h1>📐 ISO 1219 符號圖鑑</h1>
+    <p class="lead">液壓工程師的全球語言。記住三原則：方框 = 閥的工作位置、三角形 = 能量轉換方向、斜箭頭 = 可調整。詳細原理見 <a href="../lessons/level-2.html">Level 2</a>。</p>
+
+    <input type="search" id="symbol-search" placeholder="🔍 搜尋符號（中文或英文）…"
+      style="width: 100%; padding: 12px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 14px; margin-bottom: 20px;">
+
+    <div class="symbol-card" data-keywords="液壓泵浦 hydraulic pump 泵 正排量">
+      <img src="../assets/symbols/hydraulic-pump.png" alt="液壓泵符號">
+      <div class="info">
+        <div class="name">液壓泵浦</div>
+        <div class="en">Hydraulic Pump</div>
+        <div class="desc">圓圈 + 實心三角形，三角形尖端朝「出口側」代表輸出能量。若有斜箭頭穿過 = 可變排量泵。</div>
+        <div class="lv">相關章節：Level 3 液壓泵的原理與類型</div>
+      </div>
+    </div>
+
+    <div class="symbol-card" data-keywords="電動馬達 electric motor 馬達 動力源">
+      <img src="../assets/symbols/electric-motor.png" alt="電動馬達符號">
+      <div class="info">
+        <div class="name">電動馬達</div>
+        <div class="en">Electric Motor</div>
+        <div class="desc">圓圈內標注 M，是液壓系統的原動力來源，帶動泵旋轉，把電能轉換成機械能。</div>
+        <div class="lv">相關章節：Level 1 液壓系統的五大元件</div>
+      </div>
+    </div>
+
+    <div class="symbol-card" data-keywords="壓力溢流閥 安全閥 pressure relief valve 洩壓">
+      <img src="../assets/symbols/relief-valve.png" alt="壓力溢流閥符號">
+      <div class="info">
+        <div class="name">壓力溢流閥（安全閥）</div>
+        <div class="en">Pressure Relief Valve</div>
+        <div class="desc">方框內箭頭偏離通路 = 常閉。虛線（先導管路）從進口側引壓，彈簧符號代表設定值可調。壓力超過設定值時開啟洩壓回油箱。</div>
+        <div class="lv">相關章節：Level 4 壓力安全閥</div>
+      </div>
+    </div>
+
+    <div class="symbol-card" data-keywords="方向控制閥 4:3 directional control valve DCV 電磁閥 換向閥">
+      <img src="../assets/symbols/dcv-43.png" alt="4:3 方向控制閥符號">
+      <div class="info">
+        <div class="name">4:3 方向控制閥</div>
+        <div class="en">4/3 Directional Control Valve</div>
+        <div class="desc">4 個通口（P、T、A、B）、3 個工作位置（3 個方框）。中間方框是「中位機能」——決定待機時流量去哪裡（開心式/閉心式的關鍵）。</div>
+        <div class="lv">相關章節：Level 3 開心式與閉心式、Level 4 方向控制閥</div>
+      </div>
+    </div>
+
+    <div class="symbol-card" data-keywords="雙動油缸 double acting cylinder 液壓缸 執行器">
+      <img src="../assets/symbols/double-acting-cylinder.png" alt="雙動油缸符號">
+      <div class="info">
+        <div class="name">雙動油缸</div>
+        <div class="en">Double Acting Cylinder</div>
+        <div class="desc">兩個油口都可進油：一側進油伸出、另一側進油縮回。注意活塞桿側面積較小——伸出力大而慢、縮回力小而快。</div>
+        <div class="lv">相關章節：Level 4 液壓執行器</div>
+      </div>
+    </div>
+
+    <div class="symbol-card" data-keywords="流量控制閥 附單向閥 flow control valve check valve 節流閥 速度控制">
+      <img src="../assets/symbols/flow-control-check.png" alt="附單向閥的流量控制閥符號">
+      <div class="info">
+        <div class="name">附單向閥的流量控制閥</div>
+        <div class="en">Flow Control Valve with Check Valve</div>
+        <div class="desc">一個方向節流控速（斜箭頭 = 可調），反方向通過單向閥自由流動不節流。常用於「進慢出快」或「出慢進快」的單向速度控制。</div>
+        <div class="lv">相關章節：Level 4 流量控制閥</div>
+      </div>
+    </div>
+
+    <div class="symbol-card" data-keywords="回油箱 return to tank 油箱 reservoir">
+      <img src="../assets/symbols/return-to-tank.png" alt="回油箱符號">
+      <div class="info">
+        <div class="name">回油箱</div>
+        <div class="en">Return to Tank</div>
+        <div class="desc">梯形開口符號代表油箱。管線端點接到油箱符號 = 油液回到油箱。注意管口在液面上方或下方有不同畫法（液面下回油可減少氣泡）。</div>
+        <div class="lv">相關章節：Level 1 液壓系統的五大元件</div>
+      </div>
+    </div>
+
+    <nav class="lesson-nav">
+      <a href="../index.html">← 回目錄</a>
+      <a href="formulas.html" class="next">公式速查卡 →</a>
+    </nav>
+  </main>
+
+  <script>
+    document.getElementById('symbol-search').addEventListener('input', function() {
+      const q = this.value.trim().toLowerCase();
+      document.querySelectorAll('.symbol-card').forEach(card => {
+        const hay = (card.getAttribute('data-keywords') + ' ' + card.textContent).toLowerCase();
+        card.style.display = !q || hay.includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

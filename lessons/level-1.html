@@ -14,97 +14,230 @@
 
   <main class="container">
     <span class="level-chip" style="background: rgba(56,189,248,0.15); color: var(--L1);">LEVEL 1 · 入門必修</span>
-    <h1>流體動力基礎</h1>
-    <p class="lead">在學習任何閥件、泵浦之前，先回答一個問題：為什麼工廠不用電動或氣動，偏要選液壓？答案藏在三個物理事實裡。</p>
+    <h1>💧 流體動力基礎</h1>
+    <p class="lead">Fluid Power Basics — 液壓就是用液體傳遞力量的技術。汽車煞車、工地挖土機、工廠沖壓機、飛機起落架，背後都是液壓。</p>
 
+    <h2>謎題：挖土機怎麼舉起 50 噸？</h2>
     <div class="mystery">
       <div class="label">🔍 真實謎題</div>
       <div class="body">
-        一台 50 噸重的射出成型機可以靠一根手指按鈕推動模具合模，產生數百噸的鎖模力——這個力量從哪裡來？為什麼不是用更大的馬達直接推？
+        2020 年，台南某工地，操作員坐在小小的挖土機裡，用兩根手指輕推搖桿，鏟斗臂輕鬆頂起一根超過 20 噸的混凝土梁柱。挖土機的液壓缸直徑約 20 公分（面積 ≈ 314 cm²），系統壓力約 250 Bar。<br>
+        <strong style="color: var(--ans);">問題：這個缸最大能產生多少力量？學完這章，你自己算得出來。</strong>
       </div>
     </div>
 
-    <h2>為什麼選液壓？三大優勢</h2>
     <div class="row">
       <div class="card" style="border-top-color: var(--L1);">
         <div class="title" style="color: var(--L1);">💪 力量巨大</div>
         <ul>
-          <li>小液壓缸可輸出數十噸推力</li>
-          <li>功率密度遠高於電機</li>
-          <li>適合鍛壓、射出、舉升</li>
+          <li>同體積系統，液壓能產生比電動馬達大數十倍的力</li>
+          <li>250 Bar 系統對 314 cm² 缸能產生 78.5 噸力量</li>
         </ul>
       </div>
-      <div class="card" style="border-top-color: var(--L1);">
-        <div class="title" style="color: var(--L1);">🎯 精確控制</div>
+      <div class="card" style="border-top-color: var(--key);">
+        <div class="title" style="color: var(--key);">🎯 精確控制</div>
         <ul>
-          <li>速度、位置、力量皆可調</li>
-          <li>比例閥/伺服閥精度可達 μm</li>
-          <li>適合 CNC、機器人</li>
+          <li>精確控制力量、速度和位置</li>
+          <li>從輕觸到全力可無段調節</li>
         </ul>
       </div>
-      <div class="card" style="border-top-color: var(--L1);">
-        <div class="title" style="color: var(--L1);">📦 體積小巧</div>
+      <div class="card" style="border-top-color: var(--L4);">
+        <div class="title" style="color: var(--L4);">📦 體積小巧</div>
         <ul>
-          <li>同馬力下比電機小 1/3–1/5</li>
-          <li>液壓缸可遠端配置</li>
-          <li>適合空間受限的設備</li>
+          <li>相比等效機械系統，元件更少更緊湊</li>
+          <li>管路可彎曲，佈局更靈活</li>
         </ul>
-      </div>
-    </div>
-
-    <h2>液壓系統的五大元件</h2>
-    <p>不管多複雜的液壓迴路，本質都由這五個元件組成：</p>
-
-    <div class="key">
-      <div class="title">🔧 五大元件</div>
-      <div class="body">
-        <strong>① 油箱（Reservoir）</strong>——儲油、散熱、沉澱雜質<br>
-        <strong>② 泵（Pump）</strong>——把機械能轉成液壓能<br>
-        <strong>③ 控制閥（Control Valve）</strong>——控制方向、壓力、流量<br>
-        <strong>④ 執行器（Actuator）</strong>——把液壓能轉成機械動作（油缸/馬達）<br>
-        <strong>⑤ 管路（Conductor）</strong>——連接所有元件的血管
-      </div>
-    </div>
-
-    <div class="formula">
-      <div class="title">📐 帕斯卡原理（Pascal's Law）</div>
-      <div class="expr">F = P × A</div>
-      <div class="unit">F = 力（N）　P = 壓力（Pa）　A = 受壓面積（m²）</div>
-      <div class="note">封閉容器中任一點施加的壓力會以相同大小傳到容器各部位——這就是為什麼小手指能推動大模具：手指施加的壓力被放大到大面積活塞上，產生巨大推力。</div>
-    </div>
-
-    <div class="calc">
-      <div class="title">📝 計算範例：射出機鎖模力</div>
-      <ol>
-        <li>液壓系統壓力 P = 200 bar = 2 × 10⁷ Pa</li>
-        <li>主油缸活塞面積 A = 0.025 m²（直徑約 178 mm）</li>
-        <li>鎖模力 F = P × A = 2 × 10⁷ × 0.025</li>
-      </ol>
-      <div class="result">✅ F = 500,000 N ≈ 50 噸</div>
-    </div>
-
-    <div class="warn">
-      <div class="title">⚠️ 安全警告</div>
-      <div class="body">
-        液壓油在 200 bar 下的針孔噴射可以穿透皮膚進入血管，造成「液壓注射傷」。修理液壓系統前**必須先洩壓**，並使用紙板而非手指檢測油液洩漏。
-      </div>
-    </div>
-
-    <div class="ans">
-      <div class="title">💡 謎題解答：50 噸鎖模力從哪裡來？</div>
-      <div class="body">
-        手指按鈕觸發的是電磁閥，電磁閥放行高壓液壓油（200 bar）進入主油缸。**力的放大器不是電機，是面積比**——按鈕本身不出力，油壓 × 大活塞面積 = 50 噸推力。這就是液壓的核心魔法：以小博大、以精準博力。
       </div>
     </div>
 
     <div class="terms">
-      <span class="terms-label">📚 本章術語</span>
+      <span class="terms-label">📚</span>
       <span class="term-chip"><span class="zh">液壓</span><span class="sep">|</span><span class="en">Hydraulics</span></span>
-      <span class="term-chip"><span class="zh">油箱</span><span class="sep">|</span><span class="en">Reservoir</span></span>
-      <span class="term-chip"><span class="zh">泵浦</span><span class="sep">|</span><span class="en">Pump</span></span>
+      <span class="term-chip"><span class="zh">流體動力</span><span class="sep">|</span><span class="en">Fluid Power</span></span>
+      <span class="term-chip"><span class="zh">工作壓力</span><span class="sep">|</span><span class="en">Working Pressure</span></span>
       <span class="term-chip"><span class="zh">執行器</span><span class="sep">|</span><span class="en">Actuator</span></span>
-      <span class="term-chip"><span class="zh">帕斯卡原理</span><span class="sep">|</span><span class="en">Pascal's Law</span></span>
-      <span class="term-chip"><span class="zh">液壓注射傷</span><span class="sep">|</span><span class="en">Hydraulic Injection Injury</span></span>
+    </div>
+
+    <h2>物理回顧：力、面積、壓力</h2>
+    <p>學液壓前，先回顧三個國中物理概念——這是所有液壓知識的地基。</p>
+
+    <h3>① 力（Force）— 推與拉的作用</h3>
+    <p>符號 <strong style="color: var(--text);">F</strong>，單位<strong style="color: var(--ans);">牛頓（N）</strong>。一個 60 kg 的人重力 = 60 × 10 = 600 N。</p>
+    <div class="formula">
+      <div class="title">📐 重力公式</div>
+      <div class="expr">F = m × g</div>
+      <div class="unit">N = kg × m/s²</div>
+      <div class="note">F = 重力｜m = 質量（kg）｜g = 重力加速度 ≈ 10（計算時通常取整數）</div>
+    </div>
+
+    <h3>② 壓力（Pressure）— 單位面積上的力</h3>
+    <p>壓力是「<strong style="color: var(--text);">每一平方公分上承受多少力</strong>」。同樣力量，接觸面積越小，壓力越大。</p>
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">📐 壓力公式（最重要！）</div>
+      <div class="expr">P = F ÷ A</div>
+      <div class="unit">Bar（工業常用）｜PSI（英制）｜Pa（國際）</div>
+      <div class="note">P = 壓力｜F = 力（N）｜A = 面積（cm²）｜1 Bar = 10 N/cm²｜1 Bar = 14.5 PSI｜1 MPa = 10 Bar</div>
+    </div>
+
+    <div class="calc">
+      <div class="title">📝 計算範例：高跟鞋的壓力有多大？</div>
+      <ol>
+        <li>體重 60 kg，高跟鞋跟面積 ≈ 1.5 cm²</li>
+        <li>重力：F = 60 × 10 = 600 N</li>
+        <li>壓力：P = 600 ÷ 1.5 = 400 N/cm²</li>
+        <li>換算：400 ÷ 10 = <strong style="color: var(--key);">40 Bar</strong></li>
+      </ol>
+      <div class="result">✅ 高跟鞋壓力 40 Bar！汽車輪胎只有 2.5 Bar，高跟鞋是輪胎的 16 倍。</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">力</span><span class="sep">|</span><span class="en">Force (N)</span></span>
+      <span class="term-chip"><span class="zh">壓力</span><span class="sep">|</span><span class="en">Pressure (Bar/PSI)</span></span>
+      <span class="term-chip"><span class="zh">面積</span><span class="sep">|</span><span class="en">Area (cm²)</span></span>
+      <span class="term-chip"><span class="zh">牛頓</span><span class="sep">|</span><span class="en">Newton (N)</span></span>
+    </div>
+
+    <h2>帕斯卡定律：力量的倍增器</h2>
+    <div class="key">
+      <div class="title">🧠 帕斯卡定律（Pascal's Law）</div>
+      <div class="body">在密閉液體中，任何一點施加的壓力，會<strong style="color: var(--text);">均勻地、不衰減地傳遞到液體的每個地方</strong>。這是 17 世紀法國數學家帕斯卡發現的，是液壓技術的根基。</div>
+    </div>
+
+    <div class="formula">
+      <div class="title">📐 帕斯卡定律：輸出力公式</div>
+      <div class="expr">F₂ = P × A₂ = F₁ × (A₂ ÷ A₁)</div>
+      <div class="note">整個密閉系統中各處壓力 P 相同。增大輸出端面積 A₂，輸出力就等比例增大。A₂ ÷ A₁ = 力量放大倍數（機械優勢）</div>
+    </div>
+
+    <div class="calc">
+      <div class="title">📝 計算範例：液壓千斤頂</div>
+      <ol>
+        <li>小活塞 A₁ = 2 cm²，大活塞 A₂ = 200 cm²，施力 F₁ = 100 N</li>
+        <li>壓力：P = 100 ÷ 2 = 50 N/cm² = 5 Bar</li>
+        <li>輸出力：F₂ = 50 × 200 = 10,000 N</li>
+        <li>換算：10,000 ÷ 10 = <strong style="color: var(--key);">1,000 公斤 = 1 噸</strong></li>
+      </ol>
+      <div class="result">✅ 用 100 N（約 10 公斤）的力，舉起 1 噸重物！放大 100 倍。</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：挖土機的力量</div>
+      <div class="body">缸面積 314 cm²，壓力 250 Bar = 2500 N/cm²<br><strong style="color: var(--key);">F = 2500 × 314 = 785,000 N ≈ 78.5 噸！</strong><br>這就是為什麼小小的挖土機能輕鬆頂起幾十噸的重物。</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">帕斯卡定律</span><span class="sep">|</span><span class="en">Pascal's Law</span></span>
+      <span class="term-chip"><span class="zh">密閉液體</span><span class="sep">|</span><span class="en">Enclosed Fluid</span></span>
+      <span class="term-chip"><span class="zh">力量放大</span><span class="sep">|</span><span class="en">Mechanical Advantage</span></span>
+      <span class="term-chip"><span class="zh">面積比</span><span class="sep">|</span><span class="en">Area Ratio</span></span>
+    </div>
+
+    <h2>液壓系統的五大元件</h2>
+    <p>任何液壓系統，不管多複雜，都由這五種基本元件組成。了解每個元件的功能，就能讀懂任何液壓系統。</p>
+
+    <div class="key" style="border-left: 3px solid #64748b;">
+      <div class="title" style="color: #64748b;">🏺 1. 油箱（Reservoir）</div>
+      <div class="body">儲存液壓油，同時幫助油液散熱、沉澱雜質和排出空氣。通常位於系統最低點。<br><em style="color: var(--dim);">💡 類比：像人體的靜脈血，完成工作後回到「心臟」等待再次循環。</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L1);">
+      <div class="title" style="color: var(--L1);">🔄 2. 泵（Pump）</div>
+      <div class="body">被引擎或電動馬達帶動旋轉，把機械能轉換成液壓的流量。<strong style="color: var(--text);">泵製造「流量」，壓力是由下游的阻力決定的</strong>，不是泵直接設定的。<br><em style="color: var(--dim);">💡 類比：像心臟把血液推出去，但血壓是血管阻力決定的，不是心臟直接設定的。</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L2);">
+      <div class="title" style="color: var(--L2);">⚙️ 3. 控制閥（Control Valve）</div>
+      <div class="body">控制油液的流動方向、壓力大小和流量多少。是整個系統的「大腦」，決定執行器做什麼動作。<br><em style="color: var(--dim);">💡 類比：像交通號誌和限速牌，決定流量往哪走、多快、多少。</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--key);">
+      <div class="title" style="color: var(--key);">💪 4. 執行器（Actuator）</div>
+      <div class="body">把液壓能再轉換回機械能。液壓缸輸出直線力量，液壓馬達輸出旋轉扭矩。<br><em style="color: var(--dim);">💡 類比：像肌肉，接收到命令（油液）就做出動作。</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L4);">
+      <div class="title" style="color: var(--L4);">🔗 5. 管路（Conductor）</div>
+      <div class="body">連接各元件的硬管和軟管，讓液壓油在系統中流動傳遞能量。<br><em style="color: var(--dim);">💡 類比：像人體血管，輸送「液壓血液」到各個角落。</em></div>
+    </div>
+
+    <h2>⚠️ 液壓危害與安全</h2>
+    <p>Hydraulic Hazards &amp; Safety — 學任何技術之前，先學會它怎麼傷人。</p>
+
+    <h3>真實事故：一個針眼大的傷口</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實事故</div>
+      <div class="body">
+        1994 年，美國新罕布什爾州，一名有 15 年經驗的維修技師靠近一條液壓軟管時，感覺手背被「輕輕彈了一下」，痛感幾乎可以忽略，傷口只有<strong style="color: var(--ans);">針眼大小</strong>。<br><br>
+        同事堅持送他去醫院。掃描結果讓所有人震驚：<strong style="color: var(--warn);">高壓液壓油已沿著組織間隙滲透至整個手掌和前臂</strong>。若再晚 4 小時就醫，整隻手臂可能截肢。<br><br>
+        系統壓力：<strong style="color: var(--ans);">2800 PSI（約 193 Bar）</strong>——在液壓系統中是非常普通的壓力值。
+      </div>
+    </div>
+
+    <div class="warn">
+      <div class="title">⚠️ 安全警告</div>
+      <div class="body">液壓系統工作壓力通常在 100–400 Bar（1450–5800 PSI）。即使是極細裂縫噴出的油流，也能輕易穿透皮膚。這種傷害初期幾乎不痛，容易被忽視，但若未在 6 小時內手術清洗，可能導致截肢甚至死亡。</div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--warn);">
+      <div class="title" style="color: var(--warn);">🔴 注油槍傷害（Injection Injury）的三大特點</div>
+      <div class="body">
+        <strong style="color: var(--text);">① 外觀不嚇人：</strong>傷口極小，初期幾乎不痛，容易被當成輕微擦傷<br>
+        <strong style="color: var(--text);">② 危害非常嚴重：</strong>高壓油在組織間隙擴散，壓迫微血管，幾小時內造成缺氧壞死<br>
+        <strong style="color: var(--text);">③ 時間非常緊迫：</strong>6 小時是黃金救治期，必須告訴急診醫師「液壓油高壓注射傷害」
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title" style="color: var(--L1);">✅ 正確的安全操作原則</div>
+      <div class="body">
+        ▸ 絕對不要用手靠近或觸摸液壓管路，改用<strong style="color: var(--text);">紙板</strong>放在旁邊觀察是否被濕潤<br>
+        ▸ 即使傷口很小也要立即就醫，<strong style="color: var(--text);">明確告訴醫生是「液壓油高壓注射傷害」</strong>，而不是一般刺傷<br>
+        ▸ 任何疑似被高壓液體噴到，都視為緊急外傷立即處理，不要等待觀察
+      </div>
+    </div>
+
+    <h3>四大液壓危害</h3>
+    <div class="key" style="border-left: 3px solid var(--warn);">
+      <div class="title" style="color: var(--warn);">💥 ① 軟管爆裂</div>
+      <div class="body">液壓軟管老化、磨損或彎折半徑過小時可能爆裂，噴出高溫高壓油液，形成油霧可能引發火災。每年定期目視檢查（膨脹、龜裂、磨傷）。<br><span style="color: var(--key);">📌 不要站在軟管可能甩動的方向</span></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L4);">
+      <div class="title" style="color: var(--L4);">🔥 ② 高溫油液燙傷</div>
+      <div class="body">系統運作時油溫通常 50–80°C，高負載可達 90°C 以上。維護前先讓系統停機冷卻，避免直接觸碰回油管路和油箱外壁。<br><span style="color: var(--key);">📌 先停機冷卻再進行維護作業</span></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--ans);">
+      <div class="title" style="color: var(--ans);">⚡ ③ 意外動作</div>
+      <div class="body">系統仍有殘餘壓力時拆卸元件，可能造成液壓缸或馬達突然動作，夾傷或壓傷人員。<strong style="color: var(--text);">蓄能器中儲存的液壓能即使關機後也不消失！</strong><br><span style="color: var(--key);">📌 維護前必須確認系統完全卸壓</span></div>
+    </div>
+    <div class="key" style="border-left: 3px solid #f97316;">
+      <div class="title" style="color: #f97316;">🔥 ④ 液壓油可燃性</div>
+      <div class="body">礦物基液壓油是可燃液體，閃點約 160–200°C，在高壓噴霧狀態下可能自燃。禁止在液壓管路附近進行電焊和氣割作業。<br><span style="color: var(--key);">📌 高溫環境考慮使用抗燃液壓液</span></div>
+    </div>
+
+    <h3>LOTO 零能源鎖定程序（維護前 6 步驟）</h3>
+    <div class="key">
+      <div class="title">🔐 什麼是 LOTO？</div>
+      <div class="body">LOTO（Lockout/Tagout，鎖定/標示）是在維護設備前，確保設備完全停止、所有能量完全釋放的標準安全程序。液壓系統特別注意：<strong style="color: var(--text);">蓄能器中的壓力即使關機後也不消失，必須手動釋壓！</strong></div>
+    </div>
+
+    <div class="calc">
+      <div class="title" style="color: var(--L1);">🔐 LOTO 六步驟</div>
+      <ol>
+        <li><strong style="color: var(--text);">📢 通知所有人員</strong>——告知同事設備即將停機維護，確保沒有人不知情地操作</li>
+        <li><strong style="color: var(--text);">⏹️ 正常停機</strong>——依正常程序停止設備，讓執行器回到安全位置</li>
+        <li><strong style="color: var(--text);">🔌 隔離能量來源</strong>——關閉主電源、液壓供油截止閥、氣壓供給</li>
+        <li><strong style="color: var(--text);">🔒 上鎖（Lockout）</strong>——用個人鎖具鎖定每個能量隔離點，多人作業時每人都要掛自己的鎖</li>
+        <li><strong style="color: var(--text);">🏷️ 掛牌（Tagout）</strong>——掛上「設備維護中—禁止操作」的警告標籤，標明維護人員姓名和時間</li>
+        <li><strong style="color: var(--text);">✅ 確認零能源</strong>——試操作液壓控制桿確認缸無動作，確認壓力計歸零，手動釋放蓄能器壓力</li>
+      </ol>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">注油槍傷害</span><span class="sep">|</span><span class="en">Injection Injury</span></span>
+      <span class="term-chip"><span class="zh">高壓注射</span><span class="sep">|</span><span class="en">High-Pressure Injection</span></span>
+      <span class="term-chip"><span class="zh">組織壞死</span><span class="sep">|</span><span class="en">Tissue Necrosis</span></span>
+      <span class="term-chip"><span class="zh">零能源鎖定</span><span class="sep">|</span><span class="en">Lockout/Tagout (LOTO)</span></span>
+      <span class="term-chip"><span class="zh">蓄能器</span><span class="sep">|</span><span class="en">Accumulator</span></span>
+      <span class="term-chip"><span class="zh">意外啟動</span><span class="sep">|</span><span class="en">Unexpected Startup</span></span>
     </div>
 
     <button class="read-btn" data-level="1">標記為已讀</button>

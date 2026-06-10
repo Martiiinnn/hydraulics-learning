@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 5 · 進階壓力控制</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L5);">LEVEL 5 / 7</span>
+  </nav>
+
+  <main class="container">
+    <span class="level-chip" style="background: rgba(232,121,249,0.15); color: var(--L5);">LEVEL 5 · 進階壓力控制</span>
+    <h1>⚖️ 平衡閥（Counterbalance Valve）</h1>
+    <p class="lead">Counterbalance Valves — 讓重物「乖乖地」以受控速度下降的關鍵元件。</p>
+
+    <h2>謎題：起重機放下吊臂時突然失控</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2020 年，台中某工廠的液壓起重機在緩緩下放一根 600 公斤的鋼梁時，操作員輕輕推動「下降」搖桿，鋼梁突然<strong style="color: var(--ans);">失去控制急速下墜</strong>，所幸緊急停機及時，鋼梁停在距離地面 5 公分處。<br><br>
+        工程師檢查後發現：原本安裝在缸回油口的<strong style="color: var(--ans);">平衡閥（Counterbalance Valve）</strong>因為設定壓力調整錯誤，導致重物在下降過程中，油液流速超過泵供應的流量，造成「<strong style="color: var(--warn);">超越性負載失控（Runaway Load）</strong>」。<br><br>
+        但旁邊另一台機器裝了平衡閥，即使把下降搖桿推到底，重物依然以穩定速度緩緩下降。<strong style="color: var(--ans);">平衡閥到底做了什麼，能讓重物「乖乖地」以受控速度下降？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 超越性負載的危險</div>
+      <div class="body">當重物向下，重力會「推著缸下降」，油液的流出速度可能超過泵的供應速度，造成缸側進入負壓（穴蝕），同時失去控制——這就是「超越性負載（Overrunning Load）」。平衡閥的作用就是在回油口提供一個可控的「背壓阻力」，強迫重物只能以泵能供應的速度下降。</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：平衡閥防止失控的原理</div>
+      <div class="body">平衡閥裝在缸的回油口（下降方向的出油口）。<br>下降時，先導油（來自進油側）打開平衡閥，允許油液流出。但如果負載加速（油液流出超過進入），進油側壓力下降 → 先導信號降低 → 平衡閥關小 → 形成背壓 → 強制降速。<strong style="color: var(--key);">這個自動調節讓重物速度永遠跟著泵的供油速度走，不會失控。</strong></div>
+    </div>
+
+    <h2>Parker 平衡閥：設定與選型原則</h2>
+    <p>根據 Parker Hannifin 官方技術手冊（Catalog MSG15-3504），平衡閥的選型有三個關鍵設定。</p>
+
+    <h3>① 保持設定壓力（Holding Setting）</h3>
+    <div class="formula" style="border-left-color: var(--L5);">
+      <div class="title" style="color: var(--L5);">📐 Parker 標準：設定壓力 = 最大負載壓力 × 1.3</div>
+      <div class="expr">P_set = P_load_max × 1.3</div>
+      <div class="note">例：缸最大負載壓力 200 Bar → 平衡閥設定：200 × 1.3 = <strong style="color: var(--key);">260 Bar</strong><br>額外 30% 預留量確保：輕載時仍有足夠背壓，系統不會失穩<br>同時含有熱膨脹洩壓保護（Thermal Relief）——油溫升高 → 壓力超過設定值 → 洩幾滴油 → 壓力回落</div>
+    </div>
+
+    <h3>② 先導比（Pilot Ratio）選擇</h3>
+    <p>先導比是「先導力臂面積 vs 彈簧力臂面積」的比值，決定需要多少先導壓力才能打開平衡閥。Parker 建議：</p>
+    <div class="key" style="border-left: 3px solid var(--L5);">
+      <div class="title" style="color: var(--L5);">📊 先導比選擇表</div>
+      <div class="body">
+        <strong style="color: var(--text);">3:1–4:1</strong>：高控制精度，穩定定位｜機器臂、精確夾持<br>
+        <strong style="color: var(--text);">6:1</strong>：一般工業標準選擇（最常見）｜通用起重、油缸<br>
+        <strong style="color: var(--text);">7.5:1–10:1</strong>：低背壓，大流量順暢｜快速動作、馬達控制<br>
+        <strong style="color: var(--text);">10:1+</strong>：主要用於防管路爆裂保護｜高風險垂直負載
+      </div>
+    </div>
+
+    <div class="calc">
+      <div class="title">📝 計算範例：Parker 平衡閥先導壓力計算</div>
+      <ol>
+        <li>負載最大壓力 P_load = 200 Bar，熱膨脹設定 P_thermal = 200 × 1.3 = 260 Bar</li>
+        <li>選用 6:1 先導比</li>
+        <li>完全負載時，需要的先導壓力：PP = (260−200) ÷ 6 = 60 ÷ 6 = <strong style="color: var(--key);">10 Bar</strong></li>
+        <li>無負載時（缸空行程），先導壓力：PP = (260−0) ÷ 6 = 260 ÷ 6 = <strong style="color: var(--L4);">43.3 Bar</strong></li>
+      </ol>
+      <div class="result">✅ 無負載時反而需要更高的先導壓力（43.3 Bar），因為沒有負載壓力協助開閥。這是平衡閥設計的重要考量！</div>
+    </div>
+
+    <div class="warn">
+      <div class="title">⚠️ 安全警告</div>
+      <div class="body">切記：Parker 指出平衡閥絕不能過大選型（oversized）！過大 → 閥孔打開過寬 → 控制失靈 → 反而不穩定。正確做法：依實際通過的流量選型，而不是系統最大流量。</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">平衡閥</span><span class="sep">|</span><span class="en">Counterbalance Valve</span></span>
+      <span class="term-chip"><span class="zh">超越性負載</span><span class="sep">|</span><span class="en">Overrunning / Runaway Load</span></span>
+      <span class="term-chip"><span class="zh">先導比</span><span class="sep">|</span><span class="en">Pilot Ratio</span></span>
+      <span class="term-chip"><span class="zh">保持設定壓力</span><span class="sep">|</span><span class="en">Holding Setting</span></span>
+      <span class="term-chip"><span class="zh">熱膨脹洩壓</span><span class="sep">|</span><span class="en">Thermal Relief</span></span>
+    </div>
+
+    <h2>⬇️ 壓力降壓閥</h2>
+    <p>Pressure Reducing Valves — 與安全閥「長得像、邏輯完全相反」的元件。</p>
+
+    <h3>謎題：子系統壓力「降不下來」，工件被夾壞了</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2021 年，台灣某汽車零件廠，一套液壓夾具系統設計工作壓力 200 Bar。夾緊工件的液壓缸需要使用低壓（50 Bar）以避免工件損壞。工程師在圖紙上標注了「使用降壓閥限制到 50 Bar」。<br><br>
+        安裝後測試，發現夾具缸的壓力仍然達到 200 Bar，工件被夾壞了。工程師檢查確認：降壓閥已正確安裝，設定值也是 50 Bar。<strong style="color: var(--ans);">為什麼降壓閥設定了 50 Bar，但缸卻承受了 200 Bar？答案讓人出乎意料。</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 降壓閥的工作原理——與安全閥的根本差異</div>
+      <div class="body">
+        <strong style="color: var(--text);">安全閥（Relief Valve）：</strong>並聯在油路上，當壓力超過設定值時「洩流到油箱」。就像壓力鍋的洩壓閥。<br><br>
+        <strong style="color: var(--text);">降壓閥（Pressure Reducing Valve）：</strong>串聯在支路上，通過調節自身的開口大小，維持出口壓力不超過設定值。當出口壓力達到設定值時，閥芯關小，限制進入支路的流量。<br><br>
+        <strong style="color: var(--warn);">關鍵差異：降壓閥是「常開（normally open）」元件，不用就全開！安全閥是「常閉（normally closed）」元件，不用就全關！</strong>
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：降壓閥已設定但缸仍高壓的原因</div>
+      <div class="body">謎題中，降壓閥的洩壓口（T 口、排洩口）沒有正確接回油箱，導致降壓閥的彈簧腔出現了背壓，疊加到設定壓力上，使得出口實際壓力遠高於設定值。<br><strong style="color: var(--key);">降壓閥的排洩管路（Drain Line）必須單獨接回油箱，不能與回油管共用（因為回油管有背壓）。</strong></div>
+    </div>
+
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">📐 降壓閥的設定壓力公式</div>
+      <div class="expr">P_out = P_set − ΔP_spring</div>
+      <div class="note">實際出口壓力略低於設定值（有彈簧壓降）｜排洩管背壓直接疊加到設定值上！必須保持排洩管通暢接回油箱</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">降壓閥</span><span class="sep">|</span><span class="en">Pressure Reducing Valve</span></span>
+      <span class="term-chip"><span class="zh">排洩口</span><span class="sep">|</span><span class="en">Drain Port</span></span>
+      <span class="term-chip"><span class="zh">常開元件</span><span class="sep">|</span><span class="en">Normally Open</span></span>
+      <span class="term-chip"><span class="zh">支路壓力</span><span class="sep">|</span><span class="en">Branch Pressure</span></span>
+    </div>
+
+    <h2>🔒 先導單向閥：缸漂移問題的根本解決方案</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實事故</div>
+      <div class="body">
+        一名工程師聽說先導單向閥可以解決缸漂移問題（Level 4 的謎題），便想在垂直液壓臂上安裝。安裝後，臂確實不再漂移了。但維修時，一名工人拆除連接先導單向閥的管路前，忘記把臂先降下來。拆掉管路的瞬間，<strong style="color: var(--ans);">液壓臂突然快速墜落，砸毀了下方的工具台</strong>。幸好沒有人員在下方，才沒有發生重大傷亡。
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 先導單向閥的雙重功能</div>
+      <div class="body">
+        <strong style="color: var(--text);">鎖定功能：</strong>閥芯方向朝向「工作口 → 油箱」，無先導壓力時，油液無法從缸流向油箱。即使方向控制閥有內部洩漏，缸也完全鎖定，不再漂移。<br><br>
+        <strong style="color: var(--text);">自由回流：</strong>反方向（油箱 → 缸）可以自由流通（通過內建的旁通單向閥），不影響正常伸縮動作。
+      </div>
+    </div>
+
+    <div class="formula" style="border-left-color: var(--L2);">
+      <div class="title" style="color: var(--L2);">📐 先導單向閥的最低先導壓力</div>
+      <div class="expr">P_pilot(min) = P_load × A_seat ÷ A_pilot</div>
+      <div class="note">一般先導比為 3:1～10:1｜最低先導壓力通常要求系統工作壓力的 10–30%｜先導比越高 → 所需先導壓力越低，但也失去部分密封力</div>
+    </div>
+
+    <div class="warn">
+      <div class="title">⚠️ 安全警告</div>
+      <div class="body">先導單向閥安裝後，維護前必須先讓缸回到安全位置（通常是縮回或落下），再進行系統卸壓和 LOTO 程序，才能拆開管路。帶壓狀態下拆管路是極度危險的行為！</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">先導單向閥</span><span class="sep">|</span><span class="en">Pilot Operated Check Valve (POC)</span></span>
+      <span class="term-chip"><span class="zh">負載保持</span><span class="sep">|</span><span class="en">Load Holding</span></span>
+      <span class="term-chip"><span class="zh">先導解鎖</span><span class="sep">|</span><span class="en">Pilot Unlock</span></span>
+      <span class="term-chip"><span class="zh">旁通單向閥</span><span class="sep">|</span><span class="en">Internal Check (Free Flow)</span></span>
+    </div>
+
+    <button class="read-btn" data-level="5">標記為已讀</button>
+
+    <nav class="lesson-nav">
+      <a href="level-4.html">← Level 4</a>
+      <a href="level-6.html" class="next">下一課 · Level 6 →</a>
+    </nav>
+  </main>
+
+  <script src="../assets/progress.js"></script>
+</body>
+</html>

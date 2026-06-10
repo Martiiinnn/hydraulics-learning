@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公式速查卡</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L4);">公式速查卡</span>
+  </nav>
+
+  <main class="container">
+    <h1>🧮 公式速查卡</h1>
+    <p class="lead">全部 7 個 Level 的公式整理在這一頁。每個公式都標注出處章節，需要詳細推導時點回去看。</p>
+
+    <h2 style="color: var(--L1);">基礎物理（Level 1）</h2>
+    <div class="formula">
+      <div class="title">重力公式</div>
+      <div class="expr">F = m × g</div>
+      <div class="note">F = 重力（N）｜m = 質量（kg）｜g ≈ 10 m/s²</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">壓力公式（最重要！）</div>
+      <div class="expr">P = F ÷ A</div>
+      <div class="note">P = 壓力｜F = 力（N）｜A = 面積（cm²）｜1 Bar = 10 N/cm²</div>
+    </div>
+    <div class="formula">
+      <div class="title">帕斯卡定律：輸出力</div>
+      <div class="expr">F₂ = P × A₂ = F₁ × (A₂ ÷ A₁)</div>
+      <div class="note">A₂ ÷ A₁ = 力量放大倍數（機械優勢）</div>
+    </div>
+
+    <h2 style="color: var(--L2);">壓力與流量（Level 2）</h2>
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">壓力單位換算</div>
+      <div class="expr">1 Bar = 10 N/cm² = 14.5 PSI = 100,000 Pa</div>
+      <div class="note">1 MPa = 10 Bar｜kgf/cm² ≈ 1 Bar</div>
+    </div>
+    <div class="formula">
+      <div class="title">流量守恆（連續方程式）</div>
+      <div class="expr">Q = A × v = A₁×v₁ = A₂×v₂</div>
+      <div class="note">管子變細 → 流速自動加快｜單位：LPM 或 GPM</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--key);">
+      <div class="title" style="color: var(--key);">液壓功率（最重要的公式之一）</div>
+      <div class="expr">P(kW) = Q(LPM) × p(Bar) ÷ 600</div>
+      <div class="note">英制：P(hp) = Q(GPM) × p(PSI) ÷ 1714</div>
+    </div>
+
+    <h2 style="color: var(--L3);">泵（Level 3）</h2>
+    <div class="formula">
+      <div class="title">泵的輸出流量</div>
+      <div class="expr">Q = D × n × ηv ÷ 1000</div>
+      <div class="note">D = 排量（cc/rev）｜n = 轉速（RPM）｜ηv = 體積效率（0.88–0.97）</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--warn);">
+      <div class="title" style="color: var(--warn);">進口真空度限制（防穴蝕）</div>
+      <div class="expr">進口真空度 &lt; 250 mmHg</div>
+      <div class="note">一般限制 &lt; 0.3 Bar｜冬天黏度高更易穴蝕 → 必須暖機</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--key);">
+      <div class="title" style="color: var(--key);">串聯迴路壓力關係</div>
+      <div class="expr">P_supply = ΔP₁ + ΔP₂ + ΔP₃ + ...</div>
+      <div class="note">泵的最高壓力必須 ≥ 所有執行器壓降之和</div>
+    </div>
+
+    <h2 style="color: var(--L4);">控制元件（Level 4）</h2>
+    <div class="formula" style="border-left-color: var(--warn);">
+      <div class="title" style="color: var(--warn);">安全閥設定壓力</div>
+      <div class="expr">P_set = F_spring ÷ A_poppet</div>
+      <div class="note">旋緊調整螺絲 → 增加彈簧力 → 設定壓力升高</div>
+    </div>
+    <div class="formula">
+      <div class="title">液壓缸面積</div>
+      <div class="expr">A = π/4 × D² ≈ 0.785 × D²</div>
+      <div class="note">A_piston = 0.785 × D_bore²｜A_annular = 0.785 × (D_bore² − D_rod²)</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--key);">
+      <div class="title" style="color: var(--key);">液壓缸力量</div>
+      <div class="expr">F = P × A</div>
+      <div class="note">伸出力 = P × A_piston（大）｜縮回力 = P × A_annular（小）</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--ans);">
+      <div class="title" style="color: var(--ans);">液壓缸速度</div>
+      <div class="expr">v = Q ÷ A</div>
+      <div class="note">m/min = LPM ÷ (cm² × 0.1)｜伸出慢、縮回快</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">液壓馬達扭矩</div>
+      <div class="expr">T = ΔP × D × ηm ÷ (2π)</div>
+      <div class="note">轉速：n = Q × ηv ÷ D（RPM）｜ηm = 機械效率（0.92–0.96）</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">節流口流量特性</div>
+      <div class="expr">Q = Cv × √ΔP</div>
+      <div class="note">流量與壓差的平方根成正比 → 負載變 → 速度變｜壓力補償器讓 ΔP 恆定解決此問題</div>
+    </div>
+
+    <h2 style="color: var(--L5);">進階壓力控制（Level 5）</h2>
+    <div class="formula" style="border-left-color: var(--L5);">
+      <div class="title" style="color: var(--L5);">平衡閥設定（Parker 標準）</div>
+      <div class="expr">P_set = P_load_max × 1.3</div>
+      <div class="note">30% 預留量確保輕載穩定 + 熱膨脹洩壓保護</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--L5);">
+      <div class="title" style="color: var(--L5);">平衡閥先導壓力</div>
+      <div class="expr">PP = (P_set − P_load) ÷ 先導比</div>
+      <div class="note">無負載時需要的先導壓力反而更高（沒有負載壓力協助開閥）</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">降壓閥出口壓力</div>
+      <div class="expr">P_out = P_set − ΔP_spring</div>
+      <div class="note">排洩管背壓會直接疊加到設定值上！排洩管必須單獨接回油箱</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--L2);">
+      <div class="title" style="color: var(--L2);">先導單向閥最低先導壓力</div>
+      <div class="expr">P_pilot(min) = P_load × A_seat ÷ A_pilot</div>
+      <div class="note">先導比 3:1～10:1｜通常需要系統工作壓力的 10–30%</div>
+    </div>
+
+    <h2 style="color: var(--L6);">負載感應與蓄能器（Level 6）</h2>
+    <div class="formula" style="border-left-color: var(--L6);">
+      <div class="title" style="color: var(--L6);">LS 系統節能計算</div>
+      <div class="expr">E_saved = Q × (P_conv − P_LS) ÷ 600 × t</div>
+      <div class="note">LS 待機壓力僅 3–5 Bar vs 傳統 30–50 Bar</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--L6);">
+      <div class="title" style="color: var(--L6);">蓄能器容積計算（波義耳定律）</div>
+      <div class="expr">V₀ = ΔV × (P₂/P₀)^n ÷ (1−(P₁/P₂)^n)</div>
+      <div class="note">n = 1（等溫）或 1.4（絕熱）｜Parker 簡化規則：P₀ = 0.6 × P₁</div>
+    </div>
+
+    <h2 style="color: var(--L7);">液壓液（Level 7）</h2>
+    <div class="formula" style="border-left-color: var(--L7);">
+      <div class="title" style="color: var(--L7);">黏度指數（VI）</div>
+      <div class="expr">VI = (L−U) ÷ (L−H) × 100</div>
+      <div class="note">VI 越高 → 黏度隨溫度變化越小 → 低溫啟動性越好｜戶外設備選 VI ≥ 130</div>
+    </div>
+
+    <div class="key" style="margin-top: 28px;">
+      <div class="title">🎯 最常用的三個公式（背起來）</div>
+      <div class="body">
+        ① <strong style="color: var(--text);">F = P × A</strong>（力量 = 壓力 × 面積）<br>
+        ② <strong style="color: var(--text);">v = Q ÷ A</strong>（速度 = 流量 ÷ 面積）<br>
+        ③ <strong style="color: var(--text);">P(kW) = Q × p ÷ 600</strong>（功率 = 流量 × 壓力 ÷ 600）<br><br>
+        記住：<strong style="color: var(--ans);">壓力管力量，流量管速度，兩者相乘是功率。</strong>
+      </div>
+    </div>
+
+    <nav class="lesson-nav">
+      <a href="symbols.html">← 符號圖鑑</a>
+      <a href="../index.html" class="next">回目錄 →</a>
+    </nav>
+  </main>
+</body>
+</html>

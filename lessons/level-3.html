@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 3 · 液壓泵與系統架構</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L3);">LEVEL 3 / 7</span>
+  </nav>
+
+  <main class="container">
+    <span class="level-chip" style="background: rgba(74,222,128,0.15); color: var(--L3);">LEVEL 3 · 泵與系統架構</span>
+    <h1>🔧 液壓泵的原理與類型</h1>
+    <p class="lead">Positive Displacement Pumps — 泵是液壓系統的心臟，但不是所有的泵都能勝任。</p>
+
+    <h2>謎題：為什麼不能用離心泵驅動液壓缸？</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2019 年，台灣某化工廠進行設備翻新。工程師為了節省預算，把舊的齒輪液壓泵換成同排量的離心泵（便宜很多）。安裝完畢、系統啟動，操作員踩下控制桿，液壓缸……<strong style="color: var(--ans);">完全沒有動作，壓力計顯示 0 Bar</strong>。同樣是泵，同樣可以讓液體流動，為什麼離心泵完全無法驅動液壓缸？
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 正排量 vs 非正排量：核心差異</div>
+      <div class="body">
+        <strong style="color: var(--text);">正排量泵：</strong>每轉輸出「固定體積」的液體，不管背壓有多高，流量幾乎不變。液壓系統必須使用正排量泵。<br><br>
+        <strong style="color: var(--text);">非正排量泵（如離心泵）：</strong>靠葉輪離心力推動液體，遇到高背壓時流量急劇下降甚至歸零。液壓缸在移動時會產生壓力，離心泵一遇到壓力就「罷工」了。
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：離心泵無法驅動液壓缸</div>
+      <div class="body">液壓缸在運動過程中需要泵在有背壓的情況下維持流量。離心泵在遇到背壓時流量大幅下降，無法提供足夠流量讓活塞移動。<strong style="color: var(--key);">液壓系統必須使用正排量泵，這是不可替代的基本要求。</strong></div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">正排量泵</span><span class="sep">|</span><span class="en">Positive Displacement Pump</span></span>
+      <span class="term-chip"><span class="zh">非正排量泵</span><span class="sep">|</span><span class="en">Non-Positive Displacement</span></span>
+      <span class="term-chip"><span class="zh">體積效率</span><span class="sep">|</span><span class="en">Volumetric Efficiency (ηv)</span></span>
+      <span class="term-chip"><span class="zh">Q-P 特性曲線</span><span class="sep">|</span><span class="en">Q-P Characteristic Curve</span></span>
+    </div>
+
+    <h2>三種泵的原理與選型</h2>
+
+    <h3>齒輪泵（Gear Pump）：最常見的液壓泵</h3>
+    <p>兩個相互嚙合的齒輪旋轉時：在<strong style="color: var(--L1);">吸油側</strong>，齒輪分開 → 齒間空間膨脹 → 形成低壓 → 油液被吸入；在<strong style="color: var(--L4);">出油側</strong>，齒輪嚙合 → 空間縮小 → 油液被擠出。</p>
+
+    <div class="formula">
+      <div class="title">📐 泵的輸出流量計算</div>
+      <div class="expr">Q = D × n × ηv ÷ 1000</div>
+      <div class="note">D = 排量（cc/rev）｜n = 轉速（RPM）｜ηv = 體積效率（0.88–0.97，依泵型而異）</div>
+    </div>
+
+    <h3>葉片泵（Vane Pump）：低噪音、低脈動</h3>
+    <p>葉片在橢圓形凸輪環內隨轉子旋轉，腔室膨脹時吸油、縮小時壓油。<strong style="color: var(--text);">平衡式設計</strong>讓兩組吸壓區對稱，徑向力互相抵消，軸承壽命長，運轉比齒輪泵更平穩，噪音更低，適合工具機等需要低振動的場合。最高壓力 ≈ 250 Bar。</p>
+
+    <h3>軸向柱塞泵（Axial Piston Pump）：效率最高</h3>
+    <p>核心是<strong style="color: var(--ans);">斜盤（Swash Plate）</strong>——改變斜盤傾斜角度，就可以改變柱塞行程，從而改變每轉的排量。α = 0° 時排量為零；α = 最大時輸出最大流量。這是「<strong style="color: var(--text);">可變排量泵</strong>」的基礎設計，廣泛用於挖土機和高壓系統。</p>
+
+    <div class="key" style="border-left: 3px solid var(--L2);">
+      <div class="title" style="color: var(--L2);">📊 三種泵比較表</div>
+      <div class="body">
+        <strong style="color: var(--text);">最高壓力：</strong>齒輪 ≤280 Bar｜葉片 ≤250 Bar｜柱塞 ≤700 Bar<br>
+        <strong style="color: var(--text);">體積效率：</strong>齒輪 88–92%｜葉片 90–94%｜柱塞 93–97%<br>
+        <strong style="color: var(--text);">可變排量：</strong>齒輪 否｜葉片 部分｜柱塞 是<br>
+        <strong style="color: var(--text);">污染敏感度：</strong>齒輪 低｜葉片 中｜柱塞 高<br>
+        <strong style="color: var(--text);">相對成本：</strong>齒輪 💰｜葉片 💰💰｜柱塞 💰💰💰<br>
+        <strong style="color: var(--text);">典型用途：</strong>齒輪→一般工業｜葉片→工具機｜柱塞→挖土機/高壓
+      </div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">齒輪泵</span><span class="sep">|</span><span class="en">Gear Pump</span></span>
+      <span class="term-chip"><span class="zh">葉片泵</span><span class="sep">|</span><span class="en">Vane Pump</span></span>
+      <span class="term-chip"><span class="zh">軸向柱塞泵</span><span class="sep">|</span><span class="en">Axial Piston Pump</span></span>
+      <span class="term-chip"><span class="zh">斜盤</span><span class="sep">|</span><span class="en">Swash Plate</span></span>
+      <span class="term-chip"><span class="zh">可變排量泵</span><span class="sep">|</span><span class="en">Variable Displacement Pump</span></span>
+    </div>
+
+    <h2>穴蝕與充氣：泵的兩大殺手</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        一台挖土機在低溫冬天早晨剛啟動，操作員立刻以全速作業。不到 30 分鐘，泵開始發出異常噪音，之後動作越來越無力。拆下泵後，工程師在柱塞和缸體接觸面上發現了密密麻麻的細小坑洞，就像被沙紙磨過一樣。<strong style="color: var(--ans);">這就是穴蝕（Cavitation）造成的損壞，整台泵報廢，更換費用超過 10 萬元。</strong>
+      </div>
+    </div>
+
+    <p>穴蝕的四個步驟：<strong style="color: var(--text);">① 吸油不足 → ② 低壓區產生氣泡 → ③ 氣泡進入高壓區瞬間爆裂 → ④ 衝擊波坑蝕金屬表面</strong>。氣泡爆裂時局部瞬間壓力可達數千 Bar，反覆衝擊造成坑蝕（Pitting），效率急劇下降，發出特有的「噼啪」聲。</p>
+
+    <div class="formula" style="border-left-color: var(--warn);">
+      <div class="title" style="color: var(--warn);">📐 進口真空度限制</div>
+      <div class="expr">進口真空度 &lt; 250 mmHg（推薦值）</div>
+      <div class="note">一般限制：&lt; 0.3 Bar（即絕對壓力 &gt; 0.7 Bar）<br>冬天油液黏度高 → 流動阻力大 → 真空度升高 → 更容易穴蝕<br><strong style="color: var(--ans);">這就是為什麼冷機必須先暖機空轉再加載！</strong></div>
+    </div>
+
+    <p><strong style="color: var(--L4);">充氣（Aeration）</strong>是空氣混入液壓油的現象（與穴蝕不同）：原因是吸油管路漏氣或油位過低，造成系統「海綿狀響應（Sponginess）」——動作遲緩、力量不足。特徵聲音是低沉的嗡嗡聲，不同於穴蝕的清脆噼啪聲。</p>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">穴蝕</span><span class="sep">|</span><span class="en">Cavitation</span></span>
+      <span class="term-chip"><span class="zh">充氣</span><span class="sep">|</span><span class="en">Aeration</span></span>
+      <span class="term-chip"><span class="zh">坑蝕</span><span class="sep">|</span><span class="en">Pitting</span></span>
+      <span class="term-chip"><span class="zh">進口真空度</span><span class="sep">|</span><span class="en">Inlet Vacuum</span></span>
+      <span class="term-chip"><span class="zh">暖機</span><span class="sep">|</span><span class="en">Warm-Up Procedure</span></span>
+    </div>
+
+    <h2>⭕ 開心式與閉心式系統</h2>
+    <p>Open &amp; Closed Center Systems — 閥「不動作」的時候，流量去哪裡？這個問題決定整個系統架構。</p>
+
+    <h3>謎題：換了一個「一樣的閥」，泵卻壞了</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2023 年，台中一家農機維修廠，技師把一台拖拉機的液壓方向閥更換了。新舊閥外觀幾乎完全相同，連安裝尺寸都一樣。更換後，引擎啟動，閥門在中位（沒有動作）時，引擎負荷突然異常升高。泵在不到 5 分鐘內因過熱損壞了。<strong style="color: var(--ans);">外觀幾乎相同的兩個閥，為什麼一個正常工作，另一個會立刻損壞泵？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 中位機能：閥「不動作」時的狀態</div>
+      <div class="body">方向控制閥在中位（操作員沒有動搖桿）時，油液的流動方式就叫做「中位機能」。這個特性決定了：當系統「待機」時，泵的輸出流量要去哪裡？</div>
+    </div>
+
+    <div class="row">
+      <div class="card" style="border-top-color: var(--L1);">
+        <div class="title" style="color: var(--L1);">✅ 開心式（Open Center）</div>
+        <ul>
+          <li>閥中位時，流量以低壓（2–5 Bar）循環回油箱</li>
+          <li>可使用固定排量泵（便宜、簡單）</li>
+          <li>待機時引擎負荷低</li>
+          <li>適合農機、建設機械、成本敏感設備</li>
+          <li>缺點：持續有少量能量損失</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top-color: var(--warn);">
+        <div class="title" style="color: var(--warn);">🔴 閉心式（Closed Center）</div>
+        <ul>
+          <li>閥中位時，所有通口封閉</li>
+          <li>必須配合可變排量泵或設置卸荷閥</li>
+          <li>泵在待機時自動降低排量到接近零</li>
+          <li>能量效率更高，現代高端機械主流</li>
+          <li>缺點：系統設計更複雜，成本更高</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：換閥導致泵損壞的原因</div>
+      <div class="body">原廠閥是<strong style="color: var(--key);">開心式（串流中位）</strong>，閥中位時流量通過中心通道低壓卸荷。更換的新閥是<strong style="color: var(--warn);">閉心式</strong>，閥中位時所有通口封閉，固定排量泵無處卸荷，壓力飆升，安全閥持續打開發熱，泵幾分鐘內就因過熱損壞。<strong style="color: var(--key);">外觀相同不代表功能相同——中位機能是選閥時必須確認的關鍵規格！</strong></div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L6);">
+      <div class="title" style="color: var(--L6);">⚠️ 重要概念澄清：開/閉心 ≠ 開/閉迴路</div>
+      <div class="body">
+        <strong style="color: var(--text);">開心式/閉心式</strong>：指「閥中位時的流量通路」——關於「閥」的設計<br>
+        <strong style="color: var(--text);">開迴路（Open Circuit）</strong>：油液：油箱 → 泵 → 執行器 → 回油箱——關於「系統佈局」<br>
+        <strong style="color: var(--text);">閉迴路（Closed Circuit）</strong>：油液在泵和馬達之間直接循環——靜液壓傳動，無大油箱
+      </div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">開心式</span><span class="sep">|</span><span class="en">Open Center</span></span>
+      <span class="term-chip"><span class="zh">閉心式</span><span class="sep">|</span><span class="en">Closed Center</span></span>
+      <span class="term-chip"><span class="zh">中位機能</span><span class="sep">|</span><span class="en">Center Condition</span></span>
+      <span class="term-chip"><span class="zh">串流中位</span><span class="sep">|</span><span class="en">Tandem Center</span></span>
+      <span class="term-chip"><span class="zh">卸荷閥</span><span class="sep">|</span><span class="en">Unloading Valve</span></span>
+    </div>
+
+    <h2>🔗 並聯與串聯迴路</h2>
+    <p>Parallel &amp; Series Circuits — 多個執行器怎麼共用一個泵？</p>
+
+    <h3>謎題：同時操作兩個動作，快的更快、慢的更慢</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2022 年，一名剛上手的挖土機操作員同時推動「鏟斗上升」和「機台旋轉」兩個搖桿。他希望兩個動作速度差不多，結果：<strong style="color: var(--warn);">鏟斗（重，需要高壓）動作非常慢；旋轉（輕，壓力低）卻轉得飛快。</strong><br>
+        他以為是機器壞了，叫來工程師。工程師說：「機器沒壞，這是液壓並聯迴路的物理規律——踩兩個搖桿時，流量自動流向阻力最小的地方。」
+      </div>
+    </div>
+
+    <h3>並聯迴路（Parallel Circuit）</h3>
+    <div class="key">
+      <div class="title">🧠 並聯迴路的核心定律</div>
+      <div class="body">在並聯迴路中，所有執行器承受<strong style="color: var(--text);">相同的系統壓力</strong>。流量會自動分配：<strong style="color: var(--text);">負載輕（所需壓力低）的執行器獲得更多流量，動作更快；負載重的執行器獲得更少流量，動作更慢。</strong></div>
+    </div>
+
+    <div class="calc">
+      <div class="title">📝 計算範例：並聯迴路流量分配</div>
+      <ol>
+        <li>情境：泵輸出 Q = 30 LPM，兩個執行器並聯</li>
+        <li>執行器 A（輕負載）：需要 80 Bar；執行器 B（重負載）：需要 200 Bar</li>
+        <li>理想狀態：A 得到約 22 LPM，B 得到約 8 LPM</li>
+        <li>A 的速度約為 B 的 <strong style="color: var(--warn);">2.75 倍！</strong></li>
+      </ol>
+      <div class="result">✅ 輕負載的執行器動作明顯快於重負載執行器——這就是挖土機同時操作時的現象原因。</div>
+    </div>
+
+    <h3>串聯迴路（Series Circuit）</h3>
+    <div class="key">
+      <div class="title">🧠 串聯迴路的核心定律</div>
+      <div class="body">相同的流量依序通過每一個執行器。所有執行器的<strong style="color: var(--text);">流量（速度）相同</strong>，但各自消耗一部分壓力，<strong style="color: var(--text);">系統總壓力是各段壓降之和</strong>。</div>
+    </div>
+
+    <div class="formula" style="border-left-color: var(--key);">
+      <div class="title" style="color: var(--key);">📐 串聯迴路的壓力關係</div>
+      <div class="expr">P_supply = ΔP₁ + ΔP₂ + ΔP₃ + ...</div>
+      <div class="note">設計時必須確認泵的最高壓力 ≥ 所有執行器壓降之和，否則系統超壓！</div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--key);">
+      <div class="title" style="color: var(--key);">📊 並聯 vs 串聯比較</div>
+      <div class="body">
+        <strong style="color: var(--text);">壓力分配：</strong>並聯→所有執行器壓力相同｜串聯→壓力依序降低，各段不同<br>
+        <strong style="color: var(--text);">流量分配：</strong>並聯→依阻力大小自動分配｜串聯→所有執行器流量相同<br>
+        <strong style="color: var(--text);">速度：</strong>並聯→不同執行器速度不同｜串聯→所有執行器速度相同<br>
+        <strong style="color: var(--text);">主要問題：</strong>並聯→輕載優先搶走流量｜串聯→壓力需求高，容易超壓<br>
+        <strong style="color: var(--text);">典型應用：</strong>並聯→多功能工程機械｜串聯→行走馬達、雙馬達同步
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：挖土機同時操作兩個動作</div>
+      <div class="body">挖土機的多路閥是並聯設計。泵的輸出流量並聯分配。旋轉馬達負載輕，自然搶到更多流量，轉得快；鏟斗缸負載重，只獲得少量流量，動作慢。<strong style="color: var(--key);">這不是機器壞了，是並聯迴路的物理本質。現代高端機械用「負載感應系統」解決這個問題（Level 6 的主題）。</strong></div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">並聯迴路</span><span class="sep">|</span><span class="en">Parallel Circuit</span></span>
+      <span class="term-chip"><span class="zh">串聯迴路</span><span class="sep">|</span><span class="en">Series Circuit</span></span>
+      <span class="term-chip"><span class="zh">流量分配</span><span class="sep">|</span><span class="en">Flow Distribution</span></span>
+      <span class="term-chip"><span class="zh">壓降累加</span><span class="sep">|</span><span class="en">Pressure Summation</span></span>
+      <span class="term-chip"><span class="zh">壓力補償閥</span><span class="sep">|</span><span class="en">Pressure Compensator</span></span>
+    </div>
+
+    <button class="read-btn" data-level="3">標記為已讀</button>
+
+    <nav class="lesson-nav">
+      <a href="level-2.html">← Level 2</a>
+      <a href="level-4.html" class="next">下一課 · Level 4 →</a>
+    </nav>
+  </main>
+
+  <script src="../assets/progress.js"></script>
+</body>
+</html>

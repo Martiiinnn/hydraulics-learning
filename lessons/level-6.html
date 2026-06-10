@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 6 · 負載感應與比例控制</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L6);">LEVEL 6 / 7</span>
+  </nav>
+
+  <main class="container">
+    <span class="level-chip" style="background: rgba(34,211,238,0.15); color: var(--L6);">LEVEL 6 · 負載感應與比例控制</span>
+    <h1>📡 負載感應系統</h1>
+    <p class="lead">Load Sensing Systems — 現代工程機械能精確操控多個動作的根本原因，也是節能液壓的核心。</p>
+
+    <h2>謎題：為什麼 LS 挖土機能讓兩個動作速度成比例？</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        在 Level 3，我們學到了一個讓人沮喪的物理規律：液壓並聯迴路中，流量自動流向阻力最小的路徑，所以同時操作挖土機的多個動作時，輕負載的動作會搶走大部分流量，重負載動作反而動得很慢。<br><br>
+        然而，現代高端挖土機操作員反映：同時推動兩個搖桿時，兩個動作的速度<strong style="color: var(--ans);">完全跟搖桿開度成比例</strong>——搖桿推 30%，動作就是 30% 速度；另一個推 70%，就是 70% 速度，<strong style="color: var(--ans);">完全不互相干擾！</strong><br><br>
+        這種機器用的是「<strong style="color: var(--key);">負載感應系統（Load Sensing System，LS）</strong>」。它如何做到了普通並聯迴路做不到的事？
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 LS 系統的兩個核心機制</div>
+      <div class="body">
+        <strong style="color: var(--text);">① 泵跟著需求走（按需供油）：</strong>可變排量泵不再保持固定壓力，而是讓輸出壓力 = 最高負載壓力 + 固定偏差（ΔP ≈ 15–30 Bar）。這個偏差值由 LS 控制器維持，多餘的能量不再白白發熱。<br><br>
+        <strong style="color: var(--text);">② 每個閥段有獨立的壓力補償器：</strong>即使兩個執行器的負載壓力不同，每個比例閥前面的壓力補償器會自動消耗多餘的壓差，確保「你給幾成開度，就得到幾成流量」，完全不受其他執行器的負載影響。
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：LS 系統解決並聯流量搶奪問題</div>
+      <div class="body">普通並聯迴路中，流量按負載阻力分配（阻力小的搶多）。LS 系統中，每個閥段的壓力補償器讓每個節流口前後的壓差恆定，流量只跟閥的開口大小（搖桿開度）成正比，完全與負載無關。<strong style="color: var(--key);">這就是現代工程機械能精確操控多個動作的根本原因。</strong></div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L6);">
+      <div class="title" style="color: var(--L6);">📊 普通並聯迴路 vs LS 系統</div>
+      <div class="body">
+        <strong style="color: var(--text);">流量分配：</strong>並聯→依負載阻力大小自動分配｜LS→嚴格按閥開口（搖桿）比例<br>
+        <strong style="color: var(--text);">泵輸出壓力：</strong>並聯→固定最高壓力｜LS→最高負載壓力 + ΔP（按需）<br>
+        <strong style="color: var(--text);">待機能耗：</strong>並聯→固定全壓循環｜LS→接近零（泵降到最低排量）<br>
+        <strong style="color: var(--text);">多動作同時操作：</strong>並聯→輕負載搶流量｜LS→各動作獨立精確<br>
+        <strong style="color: var(--text);">典型應用：</strong>並聯→簡單農機｜LS→高端挖土機、叉車
+      </div>
+    </div>
+
+    <h2>LS 系統的能效優勢與實際應用</h2>
+    <p>負載感應系統最重要的特點之一是<strong style="color: var(--L6);">大幅降低液壓系統的能量損耗</strong>。傳統閉心式系統（Closed Center）在待機時，泵仍保持在待命壓力（Standby Pressure，通常 30–50 Bar）下旋轉，持續消耗能量；LS 系統在待機時，泵壓力降至最低（通常 3–5 Bar），接近零功率消耗。</p>
+
+    <div class="formula" style="border-left-color: var(--L6);">
+      <div class="title" style="color: var(--L6);">📐 LS 系統的節能計算</div>
+      <div class="expr">E_saved = Q × (P_conventional − P_LS) ÷ 600 × t</div>
+      <div class="note">Q = 流量（LPM）｜P = 壓力差（Bar）｜t = 待機時間（min）｜例：30 LPM 泵在 200 Bar 系統，LS 可比傳統節省 (200−5)Bar × 30LPM ÷ 600 = 9.75 kW 的待機損耗</div>
+    </div>
+
+    <h3 style="color: var(--L6);">LS 系統的三種架構</h3>
+    <div class="key" style="border-left: 3px solid var(--L1);">
+      <div class="title" style="color: var(--L1);">① 後補償式（Post-compensation）</div>
+      <div class="body">壓力補償器在節流口之後。最高負載壓力決定泵輸出，各閥段按比例分配。適合多動作同時操作的工程機械。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--key);">
+      <div class="title" style="color: var(--key);">② 前補償式（Pre-compensation）</div>
+      <div class="body">壓力補償器在節流口之前。即使泵流量不足，每個執行器速度也按比例下降，不會有某個執行器完全停止的情況。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L2);">
+      <div class="title" style="color: var(--L2);">③ 負流量控制（Negative Flow Control）</div>
+      <div class="body">一種簡化的 LS 概念，透過測量多路閥的中位卸荷流量來控制泵排量。成本較低，是許多中端挖土機的選擇（如早期小松）。</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">負載感應</span><span class="sep">|</span><span class="en">Load Sensing (LS)</span></span>
+      <span class="term-chip"><span class="zh">壓差補償器</span><span class="sep">|</span><span class="en">Pressure Compensator</span></span>
+      <span class="term-chip"><span class="zh">按需供油</span><span class="sep">|</span><span class="en">Power on Demand</span></span>
+      <span class="term-chip"><span class="zh">泵待命壓力</span><span class="sep">|</span><span class="en">Standby Pressure</span></span>
+      <span class="term-chip"><span class="zh">負流量控制</span><span class="sep">|</span><span class="en">Negative Flow Control</span></span>
+    </div>
+
+    <h2>📊 比例閥</h2>
+    <p>Proportional Valves — 電氣可調的液壓閥，提供幾乎無限的調節彈性。</p>
+
+    <h3>謎題：注塑機模具閉合速度忽快忽慢</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2022 年，台灣某塑膠廠的注塑機模具閉合動作出現問題：控制器程式設定模具要<strong style="color: var(--ans);">先快速接近（80% 速度），然後在接觸前降速到 10% 速度輕輕閉合</strong>，但實際上速度切換很不平順，常常在「快轉慢」的瞬間衝過頭，或者速度降不下來。<br><br>
+        維修工程師檢查後發現，原本的系統用的是<strong style="color: var(--warn);">普通電磁閥</strong>（只能全開或全關），靠快速切換多個閥來「模擬」速度控制。工廠工程師建議更換成<strong style="color: var(--key);">比例閥</strong>，問題立刻解決。<br>
+        <strong style="color: var(--ans);">普通電磁閥和比例閥到底差在哪裡？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 普通電磁閥 vs 比例閥的根本差異</div>
+      <div class="body">
+        <strong style="color: var(--text);">普通電磁閥（On/Off Solenoid）：</strong>只有「全開」和「全關」兩個狀態（就像電燈開關），閥芯只在兩個極端位置，無法中間停留。速度控制只能靠切換不同大小的閥或節流孔來「湊」出所需速度。<br><br>
+        <strong style="color: var(--text);">比例電磁閥（Proportional Solenoid）：</strong>電磁鐵力量與電流大小成正比，可以讓閥芯停在任何中間位置（0%–100% 開度），從而精確控制流量。再加上 LVDT 位移感測器的閉環反饋，可以達到高重複精度（±0.5–2%）。
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：比例閥解決注塑機問題</div>
+      <div class="body">普通電磁閥無法在「80% → 10%」之間平順過渡，只能跳變，造成衝擊。比例閥可以按控制器信號連續調整開口，從 80% 平滑過渡到 10%，實現無衝擊的速度切換。<strong style="color: var(--key);">Parker：「比例閥就是電氣可調的液壓閥，提供幾乎無限的調節彈性。」</strong></div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L6);">
+      <div class="title" style="color: var(--L6);">📊 電磁閥 vs 比例閥 vs 伺服閥</div>
+      <div class="body">
+        <strong style="color: var(--text);">控制模式：</strong>電磁 ON/OFF｜比例 連續比例｜伺服 連續高精度<br>
+        <strong style="color: var(--text);">響應速度：</strong>電磁 10–50 ms｜比例 30–100 ms｜伺服 2–10 ms<br>
+        <strong style="color: var(--text);">控制精度：</strong>電磁 低｜比例 中（±2%）｜伺服 高（±0.1%）<br>
+        <strong style="color: var(--text);">價格：</strong>電磁 低｜比例 中｜伺服 高<br>
+        <strong style="color: var(--text);">對油液要求：</strong>電磁 低｜比例 中｜伺服 高（NAS 7 以上）<br>
+        <strong style="color: var(--text);">典型應用：</strong>電磁→簡單方向切換｜比例→速度/壓力精確控制｜伺服→飛行控制、測試機
+      </div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">比例閥</span><span class="sep">|</span><span class="en">Proportional Valve</span></span>
+      <span class="term-chip"><span class="zh">比例電磁鐵</span><span class="sep">|</span><span class="en">Proportional Solenoid</span></span>
+      <span class="term-chip"><span class="zh">LVDT</span><span class="sep">|</span><span class="en">Linear Variable Differential Transformer</span></span>
+      <span class="term-chip"><span class="zh">PWM 信號</span><span class="sep">|</span><span class="en">Pulse Width Modulation</span></span>
+    </div>
+
+    <h2>🫧 蓄能器</h2>
+    <p>Accumulators — 液壓系統的「儲電池」，也是關機後最危險的能量來源。</p>
+
+    <h3>謎題：系統關機後，維修員被蓄能器傷害</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實事故</div>
+      <div class="body">
+        2019 年，台灣某化工廠的液壓系統需要維護。工廠主管確認「已關機斷電」後，讓維修工進行管路拆卸。工人確認壓力計歸零後，開始拆卸一個液壓快接頭。<strong style="color: var(--ans);">快接頭鬆開的瞬間，高壓油液噴射而出，造成工人手部注油槍傷害，送醫急救。</strong><br><br>
+        事故調查發現：這套系統安裝了一個<strong style="color: var(--ans);">蓄能器（Accumulator）</strong>作為緊急備用電源，設計用於停電時仍能讓閥門動作。系統雖然關機，但蓄能器中仍儲存著 180 Bar 的高壓能量，而安裝在蓄能器附近的那個壓力計並不顯示蓄能器的壓力。<br><br>
+        <strong style="color: var(--warn);">工廠主管和工人都以為系統已經「沒有壓力」了，但他們沒有考慮到一個重要的事實。</strong>
+      </div>
+    </div>
+
+    <div class="warn">
+      <div class="title">⚠️ 安全警告</div>
+      <div class="body">蓄能器的氮氣預充和儲存的液壓能量，在系統斷電、泵停止後依然保持！僅觀察系統壓力計不能確認蓄能器已安全釋壓。維護前必須使用專用的蓄能器釋壓程序，確認蓄能器完全洩壓。</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：蓄能器傷害事故的原因</div>
+      <div class="body">蓄能器是液壓能量的「儲電池」，停電關機並不會讓它自動釋壓。壓力計顯示歸零可能只是泵側壓力歸零，而蓄能器通過單向閥與系統隔離，其中的能量依然保持。<strong style="color: var(--key);">正確的維護前程序：關泵後 → 操作方向控制閥讓執行器動作幾次（消耗蓄能器能量）→ 確認連接蓄能器的那個壓力計也歸零 → 才能進行維護。</strong></div>
+    </div>
+
+    <h2>蓄能器的計算與應用設計</h2>
+    <p>蓄能器利用<strong style="color: var(--text);">波義耳定律（P₁V₁ = P₂V₂）</strong>——氮氣被壓縮時，體積縮小、壓力升高，儲存液壓油；當系統需要流量時，氮氣膨脹，把液壓油「推」出去。</p>
+
+    <div class="formula" style="border-left-color: var(--L6);">
+      <div class="title" style="color: var(--L6);">📐 蓄能器有效容積計算</div>
+      <div class="expr">V₀ = ΔV × (P₂/P₀)^n ÷ (1−(P₁/P₂)^n)</div>
+      <div class="note">V₀ = 氮氣預充容積（蓄能器標稱容積）｜ΔV = 需要輸出的油量（L）<br>P₀ = 預充壓力｜P₁ = 最低工作壓力｜P₂ = 最高工作壓力｜n = 1（等溫）或 1.4（絕熱）<br>簡化設計規則（Parker 建議）：P₀ = 0.6 × P₁（最低工作壓力）</div>
+    </div>
+
+    <div class="calc">
+      <div class="title">📝 計算範例：緊急蓄能器尺寸計算</div>
+      <ol>
+        <li>系統需要在停電後提供緊急流量 ΔV = 2 L，P₁ = 100 Bar，P₂ = 200 Bar</li>
+        <li>預充壓力：P₀ = 0.6 × 100 = 60 Bar</li>
+        <li>等溫計算：V₀ = 2 × (200/60) ÷ (1−100/200) = 2 × 3.33 ÷ 0.5 = <strong style="color: var(--key);">13.3 L</strong></li>
+        <li>→ 選擇標稱容積 20 L 的蓄能器（增加 20% 裕量）</li>
+      </ol>
+      <div class="result">✅ 需要 20 L 容積的蓄能器，才能在 100–200 Bar 範圍內輸出 2 L 的緊急油量。</div>
+    </div>
+
+    <h3>蓄能器的五大應用功能</h3>
+    <div class="key" style="border-left: 3px solid var(--key);">
+      <div class="title" style="color: var(--key);">① 緊急備用能量（最重要！）</div>
+      <div class="body">停電後，蓄能器提供足夠壓力讓閥門動作（例如：模具安全打開、安全閥關閉、飛機起落架放下）。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L1);">
+      <div class="title" style="color: var(--L1);">② 補充峰值流量</div>
+      <div class="body">泵容量不必按峰值設計。平時泵在低流量下給蓄能器充能，需要時蓄能器快速補充大量流量。可降低 50–70% 的泵功率需求。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L2);">
+      <div class="title" style="color: var(--L2);">③ 保壓節能（重要！）</div>
+      <div class="body">機器夾緊後，把方向控制閥切到中位，泵停止工作，由蓄能器維持夾緊壓力。泵可以關閉或卸荷，大幅節電。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L4);">
+      <div class="title" style="color: var(--L4);">④ 液壓衝擊吸收</div>
+      <div class="body">管路中的水錘效應（Hammer Effect）可能損壞管路和元件。蓄能器作為「緩衝器」，吸收瞬間壓力脈衝。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--ans);">
+      <div class="title" style="color: var(--ans);">⑤ 溫度補償</div>
+      <div class="body">封閉系統中，溫度上升 → 油液膨脹 → 壓力升高。蓄能器吸收膨脹油液，防止系統超壓。</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">蓄能器</span><span class="sep">|</span><span class="en">Accumulator</span></span>
+      <span class="term-chip"><span class="zh">氮氣預充壓力</span><span class="sep">|</span><span class="en">Pre-charge Pressure (P₀)</span></span>
+      <span class="term-chip"><span class="zh">波義耳定律</span><span class="sep">|</span><span class="en">Boyle's Law</span></span>
+      <span class="term-chip"><span class="zh">水錘效應</span><span class="sep">|</span><span class="en">Water Hammer</span></span>
+      <span class="term-chip"><span class="zh">保壓迴路</span><span class="sep">|</span><span class="en">Pressure Holding Circuit</span></span>
+    </div>
+
+    <button class="read-btn" data-level="6">標記為已讀</button>
+
+    <nav class="lesson-nav">
+      <a href="level-5.html">← Level 5</a>
+      <a href="level-7.html" class="next">下一課 · Level 7 →</a>
+    </nav>
+  </main>
+
+  <script src="../assets/progress.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 4 · 主要控制元件</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L4);">LEVEL 4 / 7</span>
+  </nav>
+
+  <main class="container">
+    <span class="level-chip" style="background: rgba(251,146,60,0.15); color: var(--L4);">LEVEL 4 · 主要控制元件</span>
+    <h1>🛡️ 壓力安全閥</h1>
+    <p class="lead">Pressure Relief Valves — 液壓系統的保命裝置，也是最常被誤解的元件。</p>
+
+    <h2>謎題：調整安全閥時，液壓缸突然暴衝</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2018 年，桃園一家液壓沖壓工廠，一名技師發現沖床系統壓力偏低，判斷安全閥設定值需要調高。他在<strong style="color: var(--ans);">系統帶壓的狀態下</strong>，用扳手旋轉安全閥上的調整螺絲。就在他轉動螺絲的瞬間，液壓缸突然以驚人速度完整衝出，差點夾傷他放在機台旁的手。<strong style="color: var(--ans);">為什麼「只是調高一點壓力設定」，缸就突然動了？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 安全閥的核心功能</div>
+      <div class="body">安全閥（Relief Valve）的作用是<strong style="color: var(--text);">限制系統的最高壓力</strong>，防止超壓損壞元件。當系統壓力超過設定值時，安全閥打開，讓多餘油液洩回油箱。<br><br>關鍵：安全閥設定的是<strong style="color: var(--warn);">系統最高壓力上限</strong>，不是「工作壓力」。把設定值調高到超過負載所需壓力，缸就有足夠壓力開始動作了！</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：技師調高安全閥導致缸暴衝</div>
+      <div class="body">原本系統壓力偏低，缸因壓力不夠而停在中途。技師調高安全閥設定值後，泵可以建立更高的壓力，這個壓力超過了缸的負載壓力，缸立刻動作。<strong style="color: var(--key);">安全閥調整必須在系統完全卸壓後進行，並清楚系統中所有執行器的當前狀態！</strong></div>
+    </div>
+
+    <h2>直動式與先導操作式安全閥</h2>
+
+    <h3 style="color: var(--warn);">直動式安全閥（Direct Acting Relief Valve）</h3>
+    <p>彈簧直接壓著閥芯。液壓力大於彈簧力時，閥芯被推開，油液從進口流到出口（油箱）。有兩個重要壓力概念：</p>
+
+    <div class="key" style="border-left: 3px solid var(--ans);">
+      <div class="title" style="color: var(--ans);">開啟壓力（Cracking Pressure）</div>
+      <div class="body">閥芯開始微微打開的壓力 = 設定壓力。由彈簧的預壓縮量決定，轉動調整螺絲就是在改變這個值。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--warn);">
+      <div class="title" style="color: var(--warn);">全流量壓力與壓力超調（Override）</div>
+      <div class="body">閥芯完全打開時的壓力比開啟壓力高，差值稱為 Override。直動式 Override 通常達 10–15%，大流量系統不適用。先導操作式 Override 僅 1–3%。</div>
+    </div>
+
+    <div class="formula" style="border-left-color: var(--warn);">
+      <div class="title" style="color: var(--warn);">📐 彈簧力與壓力設定的關係</div>
+      <div class="expr">P_set = F_spring ÷ A_poppet</div>
+      <div class="note">P_set = 設定壓力（Bar）｜F_spring = 彈簧預壓縮力（N）｜A_poppet = 閥芯受壓面積（cm²）｜旋緊螺絲 → 增加 F_spring → P_set 升高</div>
+    </div>
+
+    <h3 style="color: var(--key);">先導操作式安全閥（Pilot Operated Relief Valve）</h3>
+    <p>當系統流量較大（超過約 40 LPM）時，直動式 Override 問題嚴重。先導式用<strong style="color: var(--text);">小先導閥控制大主閥</strong>，Override 極小（僅 1–3%），壓力精度高。同時具有<strong style="color: var(--text);">通氣口洩壓功能</strong>：將通氣口連接油箱，可讓主閥以極低壓力完全打開，實現泵的遠端卸荷，廣泛用於節能待機設計。</p>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">安全閥</span><span class="sep">|</span><span class="en">Relief Valve</span></span>
+      <span class="term-chip"><span class="zh">開啟壓力</span><span class="sep">|</span><span class="en">Cracking Pressure</span></span>
+      <span class="term-chip"><span class="zh">壓力超調</span><span class="sep">|</span><span class="en">Override</span></span>
+      <span class="term-chip"><span class="zh">通氣口洩壓</span><span class="sep">|</span><span class="en">Remote Venting</span></span>
+    </div>
+
+    <h2>↔️ 方向控制閥</h2>
+    <p>Directional Control Valves — 液壓系統的交通指揮官。</p>
+
+    <h3>謎題：液壓缸在「停止」指令下偷偷漂移</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2021 年，台中某自動化工廠品質部門投訴：液壓夾具在「夾緊並保持」模式下，夾緊力會緩緩減弱，工件在加工過程中輕微移動，尺寸精度不達標。維修工程師確認：電磁閥斷電的「停止」狀態下，<strong style="color: var(--ans);">液壓缸每分鐘漂移約 2 mm</strong>。換了同型號新閥，有時改善，有時換了也沒用。<strong style="color: var(--ans);">到底是什麼決定液壓缸「停得住」還是「會偷偷移動」？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 方向控制閥的工作邏輯</div>
+      <div class="body">方向控制閥（DCV）是液壓系統的「交通指揮官」，決定油液往哪個方向流動，從而控制執行器的動作方向。閥芯（Spool）在閥體內滑動，不同位置時各通口的連通關係就不同。</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：缸漂移的原因</div>
+      <div class="body">在閉合中位（Closed Center）設計下，漂移原因是閥芯的「<strong style="color: var(--key);">內部洩漏（Internal Leakage）</strong>」——閥芯和閥體之間有極微小的間隙，高壓側油液緩緩滲過間隙到低壓側，使缸漂移。新閥間隙小、洩漏少，所以換新閥能暫時改善；磨損後又會出現。<br><br><strong style="color: var(--key);">根本解決方案：</strong>在液壓缸通口安裝「先導單向閥（Pilot Check Valve）」，即使閥芯有洩漏，缸也能被完全鎖定。這就是 Level 5 要學的「負載保持閥」。</div>
+    </div>
+
+    <h3>電磁閥、先導操作式與選型比較</h3>
+
+    <h3 style="color: var(--L6);">① 電磁閥（Solenoid Valve）</h3>
+    <p>電磁鐵通電產生磁力，直接推動閥芯移動；斷電後彈簧將閥芯推回原位。響應速度快（10–50 ms），可遠端電氣控制，易與 PLC 整合。但電磁鐵力量有限，直接驅動的閥口徑通常 ≤ DN16。</p>
+
+    <h3 style="color: var(--L6);">② 先導操作式方向控制閥（Pilot Operated DCV）</h3>
+    <p>流量規格較大（DN25 以上）時，電磁鐵力量不足以直接推動閥芯。改用一個<strong style="color: var(--text);">小型電磁閥（先導閥）</strong>控制低壓油液，再用低壓油液的壓力推動大型主閥芯。需要先導油路，最低先導壓力通常需要 5–7 Bar。</p>
+
+    <div class="key" style="border-left: 3px solid var(--L6);">
+      <div class="title" style="color: var(--L6);">📊 電磁直動式 vs 先導操作式</div>
+      <div class="body">
+        <strong style="color: var(--text);">適用流量：</strong>直動 ≤40 LPM｜先導 40–500+ LPM<br>
+        <strong style="color: var(--text);">響應速度：</strong>直動 10–50 ms｜先導 50–200 ms<br>
+        <strong style="color: var(--text);">最低工作壓力：</strong>直動 5 Bar｜先導需先導壓力 ≥5 Bar<br>
+        <strong style="color: var(--text);">安裝彈性：</strong>直動 高｜先導 需要先導油路<br>
+        <strong style="color: var(--text);">成本：</strong>直動 低｜先導 中
+      </div>
+    </div>
+
+    <p>常見故障診斷：電磁閥不動作 → 先確認電源和電磁鐵線圈（聽是否有吸引聲）；先導操作式閥不切換 → 先確認先導壓力是否達到最低要求。</p>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">方向控制閥</span><span class="sep">|</span><span class="en">Directional Control Valve (DCV)</span></span>
+      <span class="term-chip"><span class="zh">閥芯</span><span class="sep">|</span><span class="en">Spool</span></span>
+      <span class="term-chip"><span class="zh">缸漂移</span><span class="sep">|</span><span class="en">Cylinder Drift</span></span>
+      <span class="term-chip"><span class="zh">內部洩漏</span><span class="sep">|</span><span class="en">Internal Leakage</span></span>
+      <span class="term-chip"><span class="zh">電磁閥</span><span class="sep">|</span><span class="en">Solenoid Valve</span></span>
+    </div>
+
+    <h2>💪 液壓執行器</h2>
+    <p>Hydraulic Actuators — 液壓能變回機械能的最後一棒。</p>
+
+    <h3>謎題：伸出 5 秒、縮回 3 秒，力量也差很多？</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        工廠引進了一台新的液壓壓合機，缸徑 100 mm，桿徑 70 mm，工作壓力 200 Bar，流量 20 LPM。操作員發現，壓模<strong style="color: var(--ans);">伸出行程需要約 5 秒，縮回卻只要 3.2 秒</strong>。夾緊力測試：伸出時能產生 <strong style="color: var(--ans);">157 kN（約 16 噸）</strong>，縮回時卻只有 <strong style="color: var(--ans);">100 kN（約 10 噸）</strong>。工廠主任懷疑是機器品質有問題，要求退貨。工程師說：「不是，這完全正常！」
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 面積差是根本原因</div>
+      <div class="body">伸出側是<strong style="color: var(--text);">完整活塞面積（A_piston）</strong>；縮回側因活塞桿佔據空間，有效面積只剩<strong style="color: var(--text);">環形面積（A_annular = A_piston − A_rod）</strong>。<br>同壓力下：伸出力 = P × A_piston，縮回力 = P × A_annular（更小）<br>同流量下：伸出速度 = Q ÷ A_piston，縮回速度 = Q ÷ A_annular（更快）</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：壓合機的差異完全正常</div>
+      <div class="body">缸徑 100 mm，桿徑 70 mm：A_piston = 78.5 cm²，A_annular = 40 cm²<br>伸出力 = 200 × 10 × 78.5 = 157,000 N = 157 kN ✓；縮回力 = 200 × 10 × 40 = 100,000 N = 100 kN ✓<br><strong style="color: var(--key);">這是液壓缸的物理本質，不是品質問題。設計時就必須把這個差異計入考量。</strong></div>
+    </div>
+
+    <h3>液壓缸完整計算</h3>
+    <div class="formula">
+      <div class="title">📐 液壓缸面積計算</div>
+      <div class="expr">A = π/4 × D² ≈ 0.785 × D²</div>
+      <div class="unit">mm² 或 cm²（D 代入對應單位）</div>
+      <div class="note">A_piston = 0.785 × D_bore²｜A_annular = 0.785 × (D_bore² − D_rod²)</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--key);">
+      <div class="title" style="color: var(--key);">📐 液壓缸力量公式</div>
+      <div class="expr">F = P × A</div>
+      <div class="unit">N = (N/cm²) × cm²　｜　1 Bar = 10 N/cm²</div>
+      <div class="note">F_extend = P × A_piston（伸出力，較大）｜F_retract = P × A_annular（縮回力，較小）</div>
+    </div>
+    <div class="formula" style="border-left-color: var(--ans);">
+      <div class="title" style="color: var(--ans);">📐 液壓缸速度公式</div>
+      <div class="expr">v = Q ÷ A</div>
+      <div class="unit">m/min = LPM ÷ (cm² × 0.1)</div>
+      <div class="note">v_extend = Q ÷ A_piston（較慢）｜v_retract = Q ÷ A_annular（較快）</div>
+    </div>
+
+    <div class="calc">
+      <div class="title">📝 完整液壓缸計算範例</div>
+      <ol>
+        <li>已知：缸徑 D = 80 mm，桿徑 d = 56 mm，壓力 P = 160 Bar，流量 Q = 15 LPM</li>
+        <li>A_piston = 0.785 × 8² = 50.2 cm²；A_annular = 0.785 × (8² − 5.6²) = 50.2 − 24.6 = 25.6 cm²</li>
+        <li>伸出力：F_ext = 160 × 10 × 50.2 = 80,320 N ≈ <strong style="color: var(--key);">8.2 噸</strong></li>
+        <li>縮回力：F_ret = 160 × 10 × 25.6 = 40,960 N ≈ <strong style="color: var(--L1);">4.2 噸</strong></li>
+        <li>伸出速：v_ext = 15 ÷ (50.2 × 0.1) = <strong style="color: var(--key);">2.99 m/min ≈ 3 m/min</strong></li>
+        <li>縮回速：v_ret = 15 ÷ (25.6 × 0.1) = <strong style="color: var(--L1);">5.86 m/min ≈ 6 m/min</strong></li>
+      </ol>
+      <div class="result">✅ 縮回速是伸出速的 2 倍，縮回力是伸出力的 51%，完全符合面積比計算。</div>
+    </div>
+
+    <h3>液壓馬達（Hydraulic Motor）</h3>
+    <p>液壓馬達是液壓缸的「旋轉版本」，把液壓能轉換成旋轉扭矩。它和液壓泵結構相似，差別只在能量流動的方向。</p>
+
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">📐 液壓馬達的扭矩與轉速</div>
+      <div class="expr">T = ΔP × D × ηm ÷ (2π)</div>
+      <div class="note">T = 輸出扭矩（N·m）｜ΔP = 進出口壓差（Pa）｜D = 馬達排量（m³/rev）｜ηm = 機械效率（0.92–0.96）｜轉速：n = Q × ηv ÷ D（RPM）</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">活塞面積</span><span class="sep">|</span><span class="en">Piston Area</span></span>
+      <span class="term-chip"><span class="zh">環形面積</span><span class="sep">|</span><span class="en">Annular Area</span></span>
+      <span class="term-chip"><span class="zh">再生迴路</span><span class="sep">|</span><span class="en">Regenerative Circuit</span></span>
+      <span class="term-chip"><span class="zh">液壓馬達</span><span class="sep">|</span><span class="en">Hydraulic Motor</span></span>
+      <span class="term-chip"><span class="zh">輸出扭矩</span><span class="sep">|</span><span class="en">Output Torque (T)</span></span>
+    </div>
+
+    <h2>🚿 流量控制閥</h2>
+    <p>Flow Control Valves — 同一個零件，裝錯位置就是災難。</p>
+
+    <h3>謎題：安裝位置不同，速度控制效果天差地別</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        同一家工廠，兩台相同規格的液壓夾具，都安裝了同型號的流量控制閥。A 機器：流量閥裝在<strong style="color: var(--ans);">液壓缸的進油口側（入口節流）</strong>；B 機器：流量閥裝在<strong style="color: var(--ans);">液壓缸的回油口側（出口節流）</strong>。<br><br>
+        測試結果：A 機器夾緊工件時，缸的速度會隨夾緊力增加而不斷加速，最後以很高的速度撞上工件，造成工件損壞。B 機器則從開始到夾住都保持穩定低速，平滑接觸工件。<strong style="color: var(--ans);">完全相同的零件，只是安裝位置不同，為什麼速度控制效果差這麼多？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 超越性負載（Overrunning Load）是關鍵概念</div>
+      <div class="body">
+        <strong style="color: var(--text);">抵抗性負載（Resistive Load）：</strong>缸需要用力推動負載（水平夾緊、向上頂起重物），負載阻礙缸的動作。<br>
+        <strong style="color: var(--text);">超越性負載（Overrunning Load）：</strong>負載的重力或彈力反而在推動缸加速（垂直下降、夾緊時被工件反彈），容易失控！
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：安裝位置決定速度控制效果</div>
+      <div class="body">A 機器用進口節流：缸在夾緊時，進油側壓力上升，壓差增大，流量閥讓更多油通過，缸越夾越快——這就是超越性負載下的不穩定行為。<br>B 機器用出口節流：回油側的節流閥提供穩定的背壓，對抗著缸的前進，保持穩定速度。<br><strong style="color: var(--key);">夾緊或下降動作（超越性負載）→ 必須用出口節流！進口節流只適合純抵抗性負載。</strong></div>
+    </div>
+
+    <h3>壓力補償式流量閥與三種策略比較</h3>
+    <div class="key" style="border-left: 3px solid var(--warn);">
+      <div class="title" style="color: var(--warn);">⚠️ 針閥（Needle Valve）的問題</div>
+      <div class="body">最簡單的流量控制閥是針閥——調整開口大小控制流量。但流量公式 Q = Cv × √ΔP 顯示，流量與壓差的平方根成正比。當負載改變時，壓差 ΔP 也改變，導致流量（速度）跟著變化。這就是 A 機器的缸在夾緊時越來越快的根本原因。</div>
+    </div>
+
+    <h3 style="color: var(--L4);">壓力補償式流量控制閥</h3>
+    <p>在針閥前面內建一個<strong style="color: var(--text);">壓差補償器（Pressure Compensator）</strong>：不管進出口壓差如何變化，補償器自動調整，始終在節流口兩側維持固定壓差（通常 5–7 Bar），確保流量恆定不受負載影響。</p>
+
+    <div class="formula" style="border-left-color: var(--L4);">
+      <div class="title" style="color: var(--L4);">📐 壓力補償式流量閥的恆定壓差</div>
+      <div class="expr">Q = Cv × √ΔP_const = 恆定值</div>
+      <div class="note">補償器消耗多餘壓差，確保節流口壓差恆定 → 不管負載如何變化，缸的速度始終穩定｜代價：補償器消耗一定壓差，會有能量損失</div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L4);">
+      <div class="title" style="color: var(--L4);">📊 三種節流策略比較</div>
+      <div class="body">
+        <strong style="color: var(--text);">進口節流（Meter-In）：</strong>適用抵抗性負載｜速度穩定性中等｜效率低｜水平夾緊、向上推力<br>
+        <strong style="color: var(--text);">出口節流（Meter-Out）：</strong>適用超越性負載｜速度穩定性高｜效率低｜垂直下降缸、夾緊定位<br>
+        <strong style="color: var(--text);">旁通節流（Bleed-Off）：</strong>適用固定負載場合｜速度穩定性低｜效率高｜固定阻力的節流場合
+      </div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">進口節流</span><span class="sep">|</span><span class="en">Meter-In</span></span>
+      <span class="term-chip"><span class="zh">出口節流</span><span class="sep">|</span><span class="en">Meter-Out</span></span>
+      <span class="term-chip"><span class="zh">旁通節流</span><span class="sep">|</span><span class="en">Bleed-Off</span></span>
+      <span class="term-chip"><span class="zh">超越性負載</span><span class="sep">|</span><span class="en">Overrunning Load</span></span>
+      <span class="term-chip"><span class="zh">壓力補償式流量閥</span><span class="sep">|</span><span class="en">Pressure Compensated Flow Control</span></span>
+    </div>
+
+    <button class="read-btn" data-level="4">標記為已讀</button>
+
+    <nav class="lesson-nav">
+      <a href="level-3.html">← Level 3</a>
+      <a href="level-5.html" class="next">下一課 · Level 5 →</a>
+    </nav>
+  </main>
+
+  <script src="../assets/progress.js"></script>
+</body>
+</html>

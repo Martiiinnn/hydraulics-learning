@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 7 · 液壓液與維護診斷</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../index.html" class="brand">← 液壓原理學習</a>
+    <span class="home-link" style="color: var(--L7);">LEVEL 7 / 7</span>
+  </nav>
+
+  <main class="container">
+    <span class="level-chip" style="background: rgba(245,158,11,0.15); color: var(--L7);">LEVEL 7 · 液壓液與維護診斷</span>
+    <h1>🛢️ 液壓液的特性與選用</h1>
+    <p class="lead">Hydraulic Fluid Properties — 油就是系統的血液，選錯油等於慢性自殺。</p>
+
+    <h2>謎題：同樣是 ISO VG46，冬天早晨卻穴蝕</h2>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        台中某工廠，冬天清晨室外溫度約 8°C。兩台完全相同規格的液壓成形機，都使用相同品牌的 ISO VG46 液壓油。<br><br>
+        機器 A：每天早晨啟動後立即正常運作，從未出問題。<br>
+        機器 B：每天早晨啟動不到 5 分鐘就出現穴蝕噪音，要暖機 15 分鐘以上才能正常工作。<br><br>
+        維修工程師對比油品報告後發現：兩台機器用的油名義上都是 ISO VG46，但<strong style="color: var(--ans);">機器 B 的油桶上標注了「VI（黏度指數）= 95」，而機器 A 的油標注「VI = 145」</strong>。<br>
+        <strong style="color: var(--ans);">為什麼同樣是 VG46，黏度指數不同就造成了完全不同的低溫表現？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 液壓油的三大核心特性</div>
+      <div class="body">
+        <strong style="color: var(--text);">① 黏度（Viscosity）：</strong>最關鍵的特性，決定油液的流動性。太稠（黏度太高）→ 泵進口阻力大 → 穴蝕；太稀（黏度太低）→ 洩漏增加 → 效率下降、潤滑不足。<br><br>
+        <strong style="color: var(--text);">② 黏度指數（Viscosity Index, VI）：</strong>描述黏度隨溫度變化的劇烈程度。VI 越高，黏度隨溫度的變化越小（越穩定）。<br><br>
+        <strong style="color: var(--text);">③ ISO VG 等級（Viscosity Grade）：</strong>在 40°C 下的運動黏度，單位 cSt。VG46 表示 40°C 時黏度 ≈ 46 cSt。
+      </div>
+    </div>
+
+    <div class="formula" style="border-left-color: var(--L7);">
+      <div class="title" style="color: var(--L7);">📐 黏度指數（VI）的計算</div>
+      <div class="expr">VI = (L−U) ÷ (L−H) × 100</div>
+      <div class="note">L = 黏度指數 0 的標準油在 40°C 的黏度｜H = 黏度指數 100 的標準油在 40°C 的黏度｜U = 待測油在 40°C 的黏度<br>VI 越高 → 溫度變化時黏度變化越小 → 低溫啟動性越好</div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L7);">
+      <div class="title" style="color: var(--L7);">📊 VI 範圍與適用場合</div>
+      <div class="body">
+        <strong style="color: var(--text);">VI &lt; 100</strong>：普通礦物油｜低溫啟動性差｜溫度變化小的室內系統<br>
+        <strong style="color: var(--text);">VI 100–120</strong>：精製礦物油｜尚可｜一般工業設備<br>
+        <strong style="color: var(--text);">VI 130–150</strong>：加入 VI 改進劑｜良好｜四季使用的工業液壓<br>
+        <strong style="color: var(--text);">VI &gt; 150</strong>：全合成或半合成｜優秀｜戶外機械、寬溫差環境
+      </div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：同是 VG46 但表現不同的原因</div>
+      <div class="body">機器 B 的油 VI = 95，冬天 8°C 時黏度可能高達 300–500 cSt（比正常工作溫度時高 10 倍），泵進口阻力巨大，導致穴蝕。機器 A 的油 VI = 145，低溫下黏度變化小，8°C 時黏度仍在可接受範圍內。<strong style="color: var(--key);">選擇液壓油時，不能只看 VG 等級，必須同時確認黏度指數 VI，尤其是戶外或冬天工作的機器。</strong></div>
+    </div>
+
+    <h2>液壓油的四大類型與選用原則</h2>
+    <div class="key" style="border-left: 3px solid var(--L7);">
+      <div class="title" style="color: var(--L7);">① 礦物基液壓油（Mineral-based）</div>
+      <div class="body">最常見，從石油提煉。成本低，性能全面，但可燃性高。閃點約 160–200°C。佔市場 90% 以上。<br><em style="color: var(--dim);">適用：室內工業機械、一般移動設備</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L1);">
+      <div class="title" style="color: var(--L1);">② 抗燃液壓液（Fire-resistant）</div>
+      <div class="body">包含水基型（HFA/HFB/HFC）和合成型（HFD）。安全性高，但通常黏度特性、潤滑性差，元件密封可能不相容。<br><em style="color: var(--dim);">適用：鋼廠、鑄造廠、礦山等高溫高危環境</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--key);">
+      <div class="title" style="color: var(--key);">③ 可生物降解液壓液（Biodegradable）</div>
+      <div class="body">植物基（HETG）或合成酯基（HEES）。對環境友善，分解後無毒。成本較高，對密封材料要求不同。<br><em style="color: var(--dim);">適用：林業機械、農業設備、水上作業</em></div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L2);">
+      <div class="title" style="color: var(--L2);">④ 全合成液壓液（Fully Synthetic）</div>
+      <div class="body">聚合物合成，VI 極高（170+），極端溫度下表現優秀。成本最高，但在寬溫差、高頻率循環系統中壽命長。<br><em style="color: var(--dim);">適用：戶外設備、高精度製造、航空設備</em></div>
+    </div>
+
+    <h3>選油三原則</h3>
+    <div class="calc">
+      <div class="title" style="color: var(--key);">✅ 三步選油</div>
+      <ol>
+        <li><strong style="color: var(--text);">根據工作溫度選 VG 等級</strong>——正常工作溫度下黏度應在 40–60 cSt 範圍內。夏季熱帶用 VG68，冬季寒冷環境用 VG32 或高 VI 的 VG46。</li>
+        <li><strong style="color: var(--text);">根據溫度變化範圍選 VI</strong>——戶外設備或溫差超過 20°C 的場合，選 VI ≥ 130 的油品，避免低溫穴蝕和高溫洩漏。</li>
+        <li><strong style="color: var(--text);">根據工作環境選油型</strong>——高溫高危選抗燃液；戶外水域選生物降解型；精密設備選全合成型；其他場合選礦物油。</li>
+      </ol>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">黏度</span><span class="sep">|</span><span class="en">Viscosity (cSt)</span></span>
+      <span class="term-chip"><span class="zh">黏度指數</span><span class="sep">|</span><span class="en">Viscosity Index (VI)</span></span>
+      <span class="term-chip"><span class="zh">ISO VG 等級</span><span class="sep">|</span><span class="en">ISO VG Grade</span></span>
+      <span class="term-chip"><span class="zh">閃點</span><span class="sep">|</span><span class="en">Flash Point</span></span>
+      <span class="term-chip"><span class="zh">抗燃液壓液</span><span class="sep">|</span><span class="en">Fire-resistant Fluid</span></span>
+    </div>
+
+    <h2>🔬 污染控制與清潔度管理</h2>
+    <p>Contamination Control — 液壓系統 80% 以上的故障與污染有關。</p>
+
+    <h3>謎題：兩台相同機器，一台頻繁壞閥，一台三年不壞</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        一家台灣工廠，兩條相同的液壓成形生產線，使用同品牌同型號的比例閥。<br><br>
+        A 線：每隔 2–3 個月就有一個比例閥卡死或失靈，換閥費用加上停線損失，一年超過 80 萬台幣。<br>
+        B 線：3 年內沒有換過一個閥，狀況良好。<br><br>
+        外部顧問取油樣後，用顆粒計數器測試：<br>
+        A 線油品 ISO 清潔度：<strong style="color: var(--warn);">20/18/15</strong>（相當嚴重污染）<br>
+        B 線油品 ISO 清潔度：<strong style="color: var(--key);">16/14/11</strong>（良好清潔狀態）<br><br>
+        A 線的操作員說：「我們每 6 個月就換一次油，B 線好像從來不換油，但他們的油反而更乾淨，是怎麼做到的？」
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 ISO 4406 清潔度代碼的含義</div>
+      <div class="body">ISO 4406 使用「XX/YY/ZZ」三段代碼表示油液中不同粒徑的顆粒濃度。<strong style="color: var(--text);">每個等級代表顆粒數範圍翻倍</strong>，所以等級 22 vs 等級 18，實際顆粒數差距超過 16 倍！<br><br>從等級 20/18/15 到 16/14/11，實際上每種粒徑的顆粒數都減少了 16–256 倍，這就是為什麼兩台機器的壽命相差如此懸殊。</div>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：A 線頻繁壞閥，B 線三年不壞</div>
+      <div class="body">A 線雖然定期換油，但在換油間隔期間，油液污染持續積累（磨損顆粒、灰塵侵入）。B 線的技術員採用了「持續過濾」的策略：安裝了高壓管路精濾器（10 μm），並定期更換濾芯（不是換油）。<strong style="color: var(--key);">「換濾芯維持清潔」比「定期換油任其污染」更有效——污染是滾動積累的，要在它發生時就過濾掉，而不是等積累嚴重了再換油。</strong></div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L7);">
+      <div class="title" style="color: var(--L7);">📊 建議清潔度（ISO 4406）對照表</div>
+      <div class="body">
+        <strong style="color: var(--text);">14/12/9</strong>：伺服閥、精密比例閥｜閥芯間隙 1–5 μm，極易被顆粒堵塞<br>
+        <strong style="color: var(--text);">16/14/11</strong>：一般比例閥、軸向柱塞泵｜柱塞間隙 5–10 μm<br>
+        <strong style="color: var(--text);">18/16/13</strong>：齒輪泵、葉片泵、一般工業閥｜較大間隙，較耐污染<br>
+        <strong style="color: var(--text);">20/18/15</strong>：低壓輔助系統｜非精密元件，較不敏感
+      </div>
+    </div>
+
+    <h3 style="color: var(--L7);">五大污染控制實踐</h3>
+    <div class="key" style="border-left: 3px solid var(--key);">
+      <div class="title" style="color: var(--key);">① 新油先過濾再加入</div>
+      <div class="body">剛出廠的新油清潔度通常只有 18–20 級，遠不符合比例閥需求。必須先通過潔油車過濾到目標清潔度，再加入系統。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L1);">
+      <div class="title" style="color: var(--L1);">② 呼吸過濾器（Breather Filter）</div>
+      <div class="body">油箱呼吸孔是灰塵侵入的主要通道。安裝 3 μm 的呼吸過濾器，並定期更換。台灣工廠環境多粉塵，這是最容易被忽視的一環。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L2);">
+      <div class="title" style="color: var(--L2);">③ 定期取樣化驗</div>
+      <div class="body">每 3 個月取油樣送檢（或用現場粒子計數器），監測清潔度趨勢。在出現問題前就預防性更換濾芯。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--L4);">
+      <div class="title" style="color: var(--L4);">④ 線上過濾（On-line Filtration）</div>
+      <div class="body">在高壓管路安裝 10 μm 精濾器，捕捉元件磨損產生的顆粒，防止污染滾動惡化。</div>
+    </div>
+    <div class="key" style="border-left: 3px solid var(--ans);">
+      <div class="title" style="color: var(--ans);">⑤ 維修時防污</div>
+      <div class="body">更換元件時，開口管路立即用清潔布或堵頭封住。工具和手必須清潔。維修時的「一次污染」可能導致系統需要數週才能恢復清潔。</div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">ISO 4406</span><span class="sep">|</span><span class="en">Cleanliness Code</span></span>
+      <span class="term-chip"><span class="zh">顆粒計數</span><span class="sep">|</span><span class="en">Particle Count</span></span>
+      <span class="term-chip"><span class="zh">呼吸過濾器</span><span class="sep">|</span><span class="en">Breather Filter</span></span>
+      <span class="term-chip"><span class="zh">潔油車</span><span class="sep">|</span><span class="en">Kidney Loop</span></span>
+    </div>
+
+    <h2>🔧 系統故障診斷</h2>
+    <p>System Troubleshooting — 先思考，後動手。</p>
+
+    <h3>謎題：動作越來越慢，溫度越來越高</h3>
+    <div class="mystery">
+      <div class="label">🔍 真實謎題</div>
+      <div class="body">
+        2023 年，高雄某機械廠，一台液壓折床在連續工作 8 小時後，動作速度越來越慢，油溫也從正常的 50°C 升到了 80°C。停機冷卻後重新啟動，最初 30 分鐘速度正常，之後又開始變慢、升溫。<br><br>
+        技師更換了液壓油，症狀沒有改善。換了過濾器，症狀也沒有改善。最後把問題機器的泵拆下來，發現泵體內部<strong style="color: var(--ans);">磨損嚴重，柱塞和缸體之間的間隙已經從標準 3 μm 擴大到 15 μm 以上</strong>，導致大量內部洩漏（高壓油直接洩漏到低壓側）——這就同時解釋了「速度下降」和「溫度升高」的根因。<strong style="color: var(--ans);">但技師在最初診斷時走了很多彎路，浪費了兩週的時間。有沒有系統化的方法能更快找到問題？</strong>
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="title">🧠 系統化診斷的核心原則</div>
+      <div class="body">液壓故障診斷不能靠「直覺換零件」——那樣成本高、時間長。正確方法是：<strong style="color: var(--text);">① 先問「是哪個環節的問題」（泵側？閥側？執行器側？），② 用壓力計和流量計量測，③ 隔離確認，④ 才動手修。</strong></div>
+    </div>
+
+    <h3 style="color: var(--L7);">液壓診斷六步法（工廠現場適用）</h3>
+    <div class="calc">
+      <div class="title" style="color: var(--key);">1️⃣ 記錄症狀（What, When, How）</div>
+      <ol>
+        <li>是「所有動作」都慢，還是「特定一個」？</li>
+        <li>溫態（熱機後）才出現，還是一開始就有？</li>
+        <li>是「突然」出現的，還是「慢慢惡化」的？</li>
+        <li>機器最近有沒有換過元件、換過油？</li>
+      </ol>
+    </div>
+    <div class="calc">
+      <div class="title" style="color: var(--L1);">2️⃣ 壓力測試（Pressure Map）</div>
+      <ol>
+        <li>在泵出口測壓力：是否達到安全閥設定值？</li>
+        <li>在執行器入口測壓力：是否有壓降？</li>
+        <li>比較空載和負載的壓力差異</li>
+        <li>低壓 = 泵問題；高壓 = 閥或負載問題</li>
+      </ol>
+    </div>
+    <div class="calc">
+      <div class="title" style="color: var(--L2);">3️⃣ 流量測試（Flow Test）</div>
+      <ol>
+        <li>在泵出口測流量：是否達到額定流量？</li>
+        <li>泵洩漏測試：在旁通管路量測回油流量（代表洩漏量）</li>
+        <li>若洩漏量超過額定流量的 10% → 泵磨損</li>
+      </ol>
+    </div>
+    <div class="calc">
+      <div class="title" style="color: var(--L4);">4️⃣ 溫度分析（Thermal Scan）</div>
+      <ol>
+        <li>用紅外線溫度槍掃描各元件</li>
+        <li>安全閥/溢流閥過熱 → 可能一直開著（系統超壓）</li>
+        <li>管路某段特別熱 → 局部節流或洩漏位置</li>
+        <li>熱交換器出入口溫差 → 冷卻能力評估</li>
+      </ol>
+    </div>
+    <div class="calc">
+      <div class="title" style="color: var(--ans);">5️⃣ 隔離確認（Divide and Conquer）</div>
+      <ol>
+        <li>關閉一條支路，觀察主系統壓力/流量是否回復正常</li>
+        <li>用手動操作代替電磁閥，排除電氣問題</li>
+        <li>拆下疑似元件單獨測試（有條件時）</li>
+      </ol>
+    </div>
+    <div class="calc">
+      <div class="title" style="color: var(--warn);">6️⃣ 修復後確認（Verify Fix）</div>
+      <ol>
+        <li>修復後測量壓力、流量、溫度</li>
+        <li>確認與正常值吻合才算完成</li>
+        <li>記錄維修資料（日期、症狀、根因、修復方法）</li>
+        <li>分析根因，防止同樣問題再次發生</li>
+      </ol>
+    </div>
+
+    <div class="ans">
+      <div class="title">💡 謎題解答：折床故障的系統診斷</div>
+      <div class="body">正確診斷路徑：症狀（熱機後動作變慢）→ 壓力測試（泵出口壓力正常）→ 流量測試（發現泵輸出流量比額定少 35%）→ 泵洩漏測試（殼體排洩流量異常大）→ 確認泵磨損。<br><strong style="color: var(--key);">若一開始就用「流量測試」這個針對「動作慢」症狀的診斷工具，2 小時內就能找到根因，而不是浪費 2 週換零件。六步診斷法的核心是：先思考，後動手。</strong></div>
+    </div>
+
+    <div class="key" style="border-left: 3px solid var(--L7);">
+      <div class="title" style="color: var(--L7);">📊 症狀 → 最可能原因 → 第一優先診斷工具</div>
+      <div class="body">
+        <strong style="color: var(--text);">所有動作都無力</strong>：泵磨損或安全閥設定低 → 泵出口壓力計<br>
+        <strong style="color: var(--text);">特定動作無力</strong>：閥漏或迴路有洩漏 → 該執行器入口壓力計<br>
+        <strong style="color: var(--text);">動作慢但力量正常</strong>：流量不足（泵磨損/油溫高黏度低）→ 泵出口流量計<br>
+        <strong style="color: var(--text);">系統過熱</strong>：安全閥持續開啟或散熱不足 → 安全閥溫度 + 壓力記錄<br>
+        <strong style="color: var(--text);">異常噪音</strong>：穴蝕（進口真空）或充氣 → 進口壓力計 + 目視油箱氣泡
+      </div>
+    </div>
+
+    <div class="terms">
+      <span class="terms-label">📚</span>
+      <span class="term-chip"><span class="zh">六步診斷法</span><span class="sep">|</span><span class="en">6-Step Diagnostic Method</span></span>
+      <span class="term-chip"><span class="zh">壓力地圖</span><span class="sep">|</span><span class="en">Pressure Map</span></span>
+      <span class="term-chip"><span class="zh">流量測試</span><span class="sep">|</span><span class="en">Flow Test</span></span>
+      <span class="term-chip"><span class="zh">溫度掃描</span><span class="sep">|</span><span class="en">Thermal Scan</span></span>
+      <span class="term-chip"><span class="zh">隔離測試</span><span class="sep">|</span><span class="en">Isolation Test</span></span>
+    </div>
+
+    <button class="read-btn" data-level="7">標記為已讀</button>
+
+    <nav class="lesson-nav">
+      <a href="level-6.html">← Level 6</a>
+      <a href="../index.html" class="next">🎓 完成全部課程 · 回目錄</a>
+    </nav>
+  </main>
+
+  <script src="../assets/progress.js"></script>
+</body>
+</html>
